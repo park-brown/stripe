@@ -5,6 +5,8 @@ import { styled } from '@material-ui/system';
 import StripeLogo from '../../SvgIcon/StripeLogo/StripeLogo';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ProductMenuWrapper from '../../components/ProductMenu/ProductMenuWrapper';
+
 const StripeAppBar = styled(AppBar, { name: 'stripe-appbar' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		backgroundColor: 'black',
@@ -140,12 +142,30 @@ const MenuButton = styled(IconButton, { name: 'stripe-menu-nav' })(({ theme }) =
 }));
 
 const Header = () => {
+	const [anchorEl, setAnchorEl] = React.useState(null);
+	const open = Boolean(anchorEl);
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
 	return (
 		<StripeAppBar position='static'>
 			<StripeToolbar>
 				<StripeLogo />
 				<SiteHeaderNav component='ul'>
-					<SiteHeaderNavItem component='li'>Products</SiteHeaderNavItem>
+					<SiteHeaderNavItem
+						component='li'
+						id='product-menu-button'
+						aria-controls='demo-customized-menu'
+						aria-haspopup='true'
+						onClick={handleClick}
+						aria-expanded={open ? 'true' : undefined}>
+						Products
+					</SiteHeaderNavItem>
+					<ProductMenuWrapper open={open} anchorEl={anchorEl} handleClose={handleClose} />
 					<SiteHeaderNavItem component='li'>Use cases</SiteHeaderNavItem>
 					<SiteHeaderNavItem component='li'>Developers</SiteHeaderNavItem>
 					<SiteHeaderNavItem component='li'>Company</SiteHeaderNavItem>

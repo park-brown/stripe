@@ -41,7 +41,34 @@ const theme = createTheme({
 			fontSize: '0.8rem',
 			fontWeight: 425,
 			lineHeight: '24px',
-			textTransform: 'normal'
+			textTransform: 'capitalize'
+		},
+		nav_menu_inner_title: {
+			fontFamily: "'sohne-var', 'Helvetica Neue', 'Arial', 'sans - serif'",
+			fontSize: '13px',
+			fontWeight: 500,
+			lineHeight: '20px',
+			letterSpacing: '0.4px',
+			textTransform: 'uppercase',
+			color: '#8898aa'
+		},
+		nav_menu_inner_label: {
+			fontFamily: "'sohne-var', 'Helvetica Neue', 'Arial', 'sans - serif'",
+			fontSize: '14px',
+			fontWeight: 500,
+			lineHeight: '20px',
+			letterSpacing: '0.2px',
+			textTransform: 'capitalize',
+			color: '#212121'
+		},
+		nav_menu_inner_body: {
+			fontFamily: "'sohne-var', 'Helvetica Neue', 'Arial', 'sans - serif'",
+			fontSize: '14px',
+			fontWeight: 500,
+			lineHeight: '20px',
+			letterSpacing: '0.2px',
+			textTransform: 'capitalize',
+			color: '#212121'
 		}
 	}
 });
