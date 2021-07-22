@@ -16,7 +16,7 @@ const StripeToolbar = styled(Toolbar, { name: 'stripe-toolbar' })(({ theme }) =>
 	[theme.breakpoints.up('mobile')]: {
 		height: '76px',
 		width: '100%',
-		padding: '32px 32px 12px 32px',
+		padding: '12px 32px 12px 32px',
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center'
@@ -108,10 +108,34 @@ const SignInButton = styled(Button, { name: 'sign-in-cta' })(({ theme }) => ({
 				transform: 'translateX(3px)',
 				transition: `${theme.transitions.create(['transform'], {
 					duration: theme.transitions.duration.standard,
-					easing: theme.transitions.easing.easeIn
+					easing: theme.transitions.easing.easeIn,
+					delay: theme.transitions.duration.standard
 				})}`
 			}
 		}
+	}
+}));
+const MenuButton = styled(IconButton, { name: 'stripe-menu-nav' })(({ theme }) => ({
+	[theme.breakpoints.up('mobile')]: {
+		display: 'block',
+		color: '#fff',
+		height: '32px',
+		backgroundColor: 'hsla(0,0%,100%,0.2)',
+		padding: '0 16px',
+		borderRadius: '16px',
+		'& .MuiSvgIcon-root': {
+			width: '16px',
+			height: '32px'
+		},
+		'&:hover': {
+			backgroundColor: 'hsla(0,0%,100%,0.4)'
+		}
+	},
+	[theme.breakpoints.up('tablet')]: {
+		display: 'block'
+	},
+	[theme.breakpoints.up('laptop')]: {
+		display: 'none'
 	}
 }));
 
@@ -136,6 +160,9 @@ const Header = () => {
 					}>
 					Sign in
 				</SignInButton>
+				<MenuButton>
+					<MenuIcon />
+				</MenuButton>
 			</StripeToolbar>
 		</StripeAppBar>
 	);
