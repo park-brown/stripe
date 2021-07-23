@@ -1,11 +1,12 @@
 import React from 'react';
-import { AppBar, Box, Toolbar, Typography, Button, IconButton } from '@material-ui/core';
+import { AppBar, Box, Toolbar, Button, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { styled } from '@material-ui/system';
 import StripeLogo from '../../SvgIcon/StripeLogo/StripeLogo';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ProductMenuWrapper from '../../components/ProductMenu/ProductMenuWrapper';
+import UsecaseMenuWrapper from '../../components/UsecaseMenu/UsecaseMenuWrapper';
 
 const StripeAppBar = styled(AppBar, { name: 'stripe-appbar' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
@@ -48,7 +49,9 @@ const SiteHeaderNav = styled(Box, { name: 'header-navigation' })(({ theme }) => 
 		padding: 0
 	}
 }));
-const SiteHeaderNavItem = styled(Button, { name: 'header-navigation-item' })(({ theme }) => ({
+const SiteHeaderNavItem = styled(Button, {
+	name: 'header-navigation-item'
+})(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		display: 'none'
 	},
@@ -62,7 +65,7 @@ const SiteHeaderNavItem = styled(Button, { name: 'header-navigation-item' })(({ 
 		color: '#fff',
 		backgroundColor: 'transparent',
 		opacity: 1,
-		'&:hover,&:active': {
+		'&:hover': {
 			opacity: 0.6
 		}
 	}
@@ -142,13 +145,30 @@ const MenuButton = styled(IconButton, { name: 'stripe-menu-nav' })(({ theme }) =
 }));
 
 const Header = () => {
-	const [anchorEl, setAnchorEl] = React.useState(null);
-	const open = Boolean(anchorEl);
-	const handleOpen = (event) => {
-		setAnchorEl(event.currentTarget);
+	/*product state */
+
+	const [productEl, openProductMenu] = React.useState(null);
+	const openProduct = Boolean(productEl);
+
+	const handleProductMenuOpen = (event) => {
+		openProductMenu(event.target);
+		openUsecaseMenu(null);
 	};
-	const handleClose = () => {
-		setAnchorEl(null);
+	const handleProductMenuClose = () => {
+		openProductMenu(null);
+	};
+
+	/*usecase state */
+
+	const [usecaseEl, openUsecaseMenu] = React.useState(null);
+	const openUsecase = Boolean(usecaseEl);
+
+	const handleUsecaseMenuOpen = (event) => {
+		openUsecaseMenu(event.target);
+		openProductMenu(null);
+	};
+	const handleUsecaseMenuClose = () => {
+		openUsecaseMenu(null);
 	};
 
 	return (
@@ -158,21 +178,24 @@ const Header = () => {
 				<SiteHeaderNav component='ul'>
 					<SiteHeaderNavItem
 						component='li'
-						id='product-menu-button'
-						aria-controls='product-menu'
+						id='product-popper-button'
+						aria-controls='product-popper'
 						aria-haspopup='true'
-						onClick={handleOpen}
-						onMouseEnter={() => {
-							console.log('mouse over');
-						}}
-						onMouseLeave={() => {
-							console.log('mouse leave');
-						}}
-						aria-expanded={open ? 'true' : undefined}>
+						onMouseEnter={handleProductMenuOpen}
+						aria-expanded={openProduct ? 'true' : undefined}>
 						Products
 					</SiteHeaderNavItem>
-					<ProductMenuWrapper open={open} anchorEl={anchorEl} handleClose={handleClose} />
-					<SiteHeaderNavItem component='li'>Use cases</SiteHeaderNavItem>
+					<ProductMenuWrapper open={openProduct} anchorEl={productEl} onClose={handleProductMenuClose} />
+					<SiteHeaderNavItem
+						component='li'
+						id='usecase-menu-button'
+						aria-controls='usecase-menu'
+						aria-haspopup='true'
+						onMouseEnter={handleUsecaseMenuOpen}
+						aria-expanded={openUsecase ? 'true' : undefined}>
+						Use cases
+					</SiteHeaderNavItem>
+					<UsecaseMenuWrapper open={openUsecase} anchorEl={usecaseEl} onClose={handleUsecaseMenuClose} />
 					<SiteHeaderNavItem component='li'>Developers</SiteHeaderNavItem>
 					<SiteHeaderNavItem component='li'>Company</SiteHeaderNavItem>
 					<SiteHeaderNavItem component='li'>Pricing</SiteHeaderNavItem>

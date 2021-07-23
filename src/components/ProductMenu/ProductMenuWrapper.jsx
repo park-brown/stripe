@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Menu, Paper } from '@material-ui/core';
+import { Box, Typography, Paper, Popper } from '@material-ui/core';
 import { styled } from '@material-ui/system';
 import PaymentIcon from '../../SvgIcon/payment/paymentIcon';
 import TextInnerRightArrow from '../../SvgIcon/TextInnerRightArrow/TextInnerRightArrow';
@@ -13,14 +13,14 @@ import AtlasIcon from '../../SvgIcon/Atlas/AtlasIcon';
 import ClimateIcon from '../../SvgIcon/Climate/ClimateIcon';
 import TaxIcon from '../../SvgIcon/Tax/TaxIcon';
 import IdentityIcon from '../../SvgIcon/Identity/IdentityIcon';
-const ProductMenu = styled(Menu, { name: 'product-menu' })(({ theme }) => ({
-	'& .MuiPopover-paper': {
-		margin: '28px 0 0 0', // top set to 40px,  add 52px margin top to make product menu sit right below header
-		overflow: 'visible',
-		'& .MuiMenu-list': {
-			padding: 0
-		}
-	}
+const ProductMenu = styled(Popper, { name: 'product-popper' })(({ theme }) => ({
+	// '& .MuiPopover-paper': {
+	// 	margin: '28px 0 0 0', // top set to 40px,  add 52px margin top to make product menu sit right below header
+	// 	overflow: 'visible',
+	// 	'& .MuiMenu-list': {
+	// 		padding: 0
+	// 	}
+	// }
 }));
 
 const ProductMenuLayOut = styled(Paper, { name: 'product-menu-inner' })(({ theme }) => ({
@@ -50,6 +50,7 @@ const ProductMenuListItem = styled(Box, { name: 'product-menu-list-item' })(({ t
 	width: '100%',
 	height: '40px',
 	display: 'flex',
+	cursor: 'pointer',
 	justifyContent: 'flex-start',
 	alignItems: 'center',
 	'&:hover .MuiTypography-root': {
@@ -64,25 +65,25 @@ const ProductMenuListItemIcon = styled(Box, { name: 'product-menu-list-item-icon
 	height: '32px',
 	margin: '0 14px 0 0'
 }));
-const ProductMenuListItemText = styled(Box, { name: 'product-menu-list-item-text' })(({ theme }) => ({
+export const ProductMenuListItemText = styled(Box, { name: 'product-menu-list-item-text' })(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'flex-start',
 	flexGrow: 1,
 	height: '100%'
 }));
-const TextLabel = styled(Typography, { name: 'product-menu-list-item-text-label' })(({ theme }) => ({
+export const TextLabel = styled(Typography, { name: 'product-menu-list-item-text-label' })(({ theme }) => ({
 	...theme.typography.nav_menu_inner_label,
 	position: 'relative'
 }));
-const InnerArrow = styled(TextInnerRightArrow, { name: 'text-inner-right-arrow' })(({ theme }) => ({
+export const InnerArrow = styled(TextInnerRightArrow, { name: 'text-inner-right-arrow' })(({ theme }) => ({
 	position: 'absolute',
 	right: '-20px',
 	top: '50%',
 	transform: 'translateY(-50%)',
 	opacity: 0
 }));
-const TextSubTitle = styled(Typography, { name: 'product-menu-list-item-text-subtitle' })(({ theme }) => ({
+export const TextSubTitle = styled(Typography, { name: 'product-menu-list-item-text-subtitle' })(({ theme }) => ({
 	...theme.typography.nav_menu_inner_body,
 	opacity: 0.6,
 	'&:hover': {
@@ -100,21 +101,15 @@ const UpwardArrow = styled(Box, { name: 'product-menu-upward-arrow' })(({ theme 
 	borderRadius: '3px',
 	boxShadow: '-3px -3px 5px rgb(82 95 127 / 4%)'
 }));
-const ProductMenuWrapper = ({ anchorEl, open, handleClose }) => {
+const ProductMenuWrapper = ({ anchorEl, open, onClose }) => {
 	return (
 		<ProductMenu
-			id='product-menu-button'
-			MenuListProps={{
-				'aria-labelledby': 'product-menu-button'
-			}}
+			id='product-popper'
 			anchorEl={anchorEl}
 			open={open}
-			onClose={handleClose}
+			onMouseLeave={onClose}
 			disablePortal={true}
-			anchorOrigin={{
-				vertical: 'bottom',
-				horizontal: 'left'
-			}}>
+			placement='bottom-start'>
 			<ProductMenuLayOut>
 				<UpwardArrow />
 				<ProductMenuInnerColumn>
