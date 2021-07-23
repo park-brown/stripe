@@ -5,9 +5,7 @@ import { TextLabel, InnerArrow, TextSubTitle } from '../ProductMenu/ProductMenuW
 import ProductIcon from '../../SvgIcon/Product/ProductIcon';
 import SaasIcon from '../../SvgIcon/Saas/SaasIcon';
 import MarketPlaceIcon from '../../SvgIcon/MarketPlace/MarketPlaceIcon';
-const UsecasePopper = styled(Popper, { name: 'use-case-popper' })(({ theme }) => ({
-	margin: '0 0 0 -35px !important'
-}));
+const UsecasePopper = styled(Popper, { name: 'use-case-popper' })(({ theme }) => ({}));
 
 const UsecasePopperLayOut = styled(Paper, { name: 'use-case-popper-inner' })(({ theme }) => ({
 	width: '426px',
@@ -61,7 +59,7 @@ const UpwardArrow = styled(Box, { name: 'use-case-upward-arrow' })(({ theme }) =
 	height: '14px',
 	position: 'absolute',
 	top: '3px',
-	left: '85px',
+	left: '55px',
 	transform: 'rotate(45deg) translate(-50%,-50%)',
 	backgroundColor: theme.palette.common.white,
 	borderRadius: '3px',

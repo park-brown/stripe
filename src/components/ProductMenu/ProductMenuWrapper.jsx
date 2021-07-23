@@ -13,15 +13,7 @@ import AtlasIcon from '../../SvgIcon/Atlas/AtlasIcon';
 import ClimateIcon from '../../SvgIcon/Climate/ClimateIcon';
 import TaxIcon from '../../SvgIcon/Tax/TaxIcon';
 import IdentityIcon from '../../SvgIcon/Identity/IdentityIcon';
-const ProductMenu = styled(Popper, { name: 'product-popper' })(({ theme }) => ({
-	// '& .MuiPopover-paper': {
-	// 	margin: '28px 0 0 0', // top set to 40px,  add 52px margin top to make product menu sit right below header
-	// 	overflow: 'visible',
-	// 	'& .MuiMenu-list': {
-	// 		padding: 0
-	// 	}
-	// }
-}));
+const ProductMenu = styled(Popper, { name: 'product-popper' })(({ theme }) => ({}));
 
 const ProductMenuLayOut = styled(Paper, { name: 'product-menu-inner' })(({ theme }) => ({
 	width: '604px',
