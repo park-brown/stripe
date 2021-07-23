@@ -3,7 +3,7 @@ import { SvgIcon } from '@material-ui/core';
 import { styled } from '@material-ui/system';
 let PaymentIcon = (props) => {
 	return (
-		<SvgIcon {...props} titleAccess='SPayments logo' viewBox='0 0 40 40'>
+		<SvgIcon {...props} titleAccess='Payments logo' viewBox='0 0 40 40'>
 			<title>Payments logo</title>
 			<path
 				d='M34.61 11.28a2.56 2.56 0 0 0-1.22-1.04L8.54.2A2.57 2.57 0 0 0 5 2.6V15c0 1.05.64 2 1.61 2.4l6.44 2.6 21.56 8.72c.26-.4.4-.88.39-1.36V12.64c0-.48-.13-.96-.39-1.37z'

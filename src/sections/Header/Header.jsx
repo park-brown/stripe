@@ -144,7 +144,7 @@ const MenuButton = styled(IconButton, { name: 'stripe-menu-nav' })(({ theme }) =
 const Header = () => {
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
-	const handleClick = (event) => {
+	const handleOpen = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
 	const handleClose = () => {
@@ -159,9 +159,15 @@ const Header = () => {
 					<SiteHeaderNavItem
 						component='li'
 						id='product-menu-button'
-						aria-controls='demo-customized-menu'
+						aria-controls='product-menu'
 						aria-haspopup='true'
-						onClick={handleClick}
+						onClick={handleOpen}
+						onMouseEnter={() => {
+							console.log('mouse over');
+						}}
+						onMouseLeave={() => {
+							console.log('mouse leave');
+						}}
 						aria-expanded={open ? 'true' : undefined}>
 						Products
 					</SiteHeaderNavItem>

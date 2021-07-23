@@ -46,7 +46,7 @@ const theme = createTheme({
 		nav_menu_inner_title: {
 			fontFamily: "'sohne-var', 'Helvetica Neue', 'Arial', 'sans - serif'",
 			fontSize: '13px',
-			fontWeight: 500,
+			fontWeight: 600,
 			lineHeight: '20px',
 			letterSpacing: '0.4px',
 			textTransform: 'uppercase',
@@ -67,7 +67,7 @@ const theme = createTheme({
 			fontWeight: 500,
 			lineHeight: '20px',
 			letterSpacing: '0.2px',
-			textTransform: 'capitalize',
+			// textTransform: 'capitalize',
 			color: '#212121'
 		}
 	}

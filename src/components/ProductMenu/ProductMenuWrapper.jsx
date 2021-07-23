@@ -3,6 +3,16 @@ import { Box, Typography, Menu, Paper } from '@material-ui/core';
 import { styled } from '@material-ui/system';
 import PaymentIcon from '../../SvgIcon/payment/paymentIcon';
 import TextInnerRightArrow from '../../SvgIcon/TextInnerRightArrow/TextInnerRightArrow';
+import PaymentLinksIcon from '../../SvgIcon/PaymentLinks/PaymentLinkIcon';
+import InvoicingIcon from '../../SvgIcon/Invoicing/InvoicingIcon';
+import BillingIcon from '../../SvgIcon/Billing/BillingIcon';
+import ConnectIcon from '../../SvgIcon/Connect/ConnectIcon';
+import RadarIcon from '../../SvgIcon/Radar/RadarIcon';
+import SigmaIcon from '../../SvgIcon/Sigma/SigmaIcon';
+import AtlasIcon from '../../SvgIcon/Atlas/AtlasIcon';
+import ClimateIcon from '../../SvgIcon/Climate/ClimateIcon';
+import TaxIcon from '../../SvgIcon/Tax/TaxIcon';
+import IdentityIcon from '../../SvgIcon/Identity/IdentityIcon';
 const ProductMenu = styled(Menu, { name: 'product-menu' })(({ theme }) => ({
 	'& .MuiPopover-paper': {
 		margin: '28px 0 0 0', // top set to 40px,  add 52px margin top to make product menu sit right below header
@@ -109,6 +119,7 @@ const ProductMenuWrapper = ({ anchorEl, open, handleClose }) => {
 				<UpwardArrow />
 				<ProductMenuInnerColumn>
 					<ProductMenuInnerTitle component='h1'>payments</ProductMenuInnerTitle>
+					{/*Payment listItem */}
 					<ProductMenuListItem>
 						<ProductMenuListItemIcon>
 							<PaymentIcon />
@@ -120,9 +131,137 @@ const ProductMenuWrapper = ({ anchorEl, open, handleClose }) => {
 							<TextSubTitle component='span'>Online payments</TextSubTitle>
 						</ProductMenuListItemText>
 					</ProductMenuListItem>
+					{/*Payment Link listItem */}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<PaymentLinksIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Payment Links <InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>No-code payments </TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Invoicing listItem */}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<InvoicingIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Invoicing <InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Online invoices </TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Billing listItem */}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<BillingIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Billing
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Subscribtion management </TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Connnect*/}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<ConnectIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Billing
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Payment for platforms</TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
 				</ProductMenuInnerColumn>
 				<ProductMenuInnerColumn>
 					<ProductMenuInnerTitle component='h1'>business operations</ProductMenuInnerTitle>
+					{/*Radar*/}
+					<ProductMenuListItem>
+						<ProductMenuListItemIcon>
+							<RadarIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Radar
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Fraud & risk management</TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Sigma*/}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<SigmaIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Sigma
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Custom reports</TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Atlas*/}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<AtlasIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Atlas
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Startup incorporation</TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Climate*/}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<ClimateIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Climate
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Carbon removal</TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Tax*/}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<TaxIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Tax
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Sales tax & VAT automation</TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
+					{/*Identity*/}
+					<ProductMenuListItem sx={{ mt: '32px' }}>
+						<ProductMenuListItemIcon>
+							<IdentityIcon />
+						</ProductMenuListItemIcon>
+						<ProductMenuListItemText>
+							<TextLabel component='span'>
+								Identity
+								<InnerArrow />
+							</TextLabel>
+							<TextSubTitle component='span'>Online identity verification</TextSubTitle>
+						</ProductMenuListItemText>
+					</ProductMenuListItem>
 				</ProductMenuInnerColumn>
 			</ProductMenuLayOut>
 		</ProductMenu>
