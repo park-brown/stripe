@@ -8,6 +8,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ProductMenuWrapper from '../../components/ProductMenu/ProductMenuWrapper';
 import UsecaseMenuWrapper from '../../components/UsecaseMenu/UsecaseMenuWrapper';
 import DevelopersMenuWrapper from '../../components/DevelopersMenu/DevelopersMenuWrapper';
+import CompanyMenuWrapper from '../../components/CompanyMenu/CompanyMenuWrapper';
 
 const StripeAppBar = styled(AppBar, { name: 'stripe-appbar' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
@@ -155,6 +156,7 @@ const Header = () => {
 		openProductMenu(event.target);
 		openUsecaseMenu(null);
 		openDeveloperMenu(null);
+		openCompanyMenu(null);
 	};
 	const handleProductMenuClose = () => {
 		openProductMenu(null);
@@ -169,6 +171,7 @@ const Header = () => {
 		openUsecaseMenu(event.target);
 		openProductMenu(null);
 		openDeveloperMenu(null);
+		openCompanyMenu(null);
 	};
 	const handleUsecaseMenuClose = () => {
 		openUsecaseMenu(null);
@@ -182,9 +185,24 @@ const Header = () => {
 		openDeveloperMenu(event.target);
 		openProductMenu(null);
 		openUsecaseMenu(null);
+		openCompanyMenu(null);
 	};
 	const handleDeveloperMenuClose = () => {
 		openDeveloperMenu(null);
+	};
+	/*company popper state */
+
+	const [CompanyEl, openCompanyMenu] = React.useState(null);
+	const openCompany = Boolean(CompanyEl);
+
+	const handleCompanyMenuOpen = (event) => {
+		openCompanyMenu(event.target);
+		openProductMenu(null);
+		openUsecaseMenu(null);
+		openDeveloperMenu(null);
+	};
+	const handleCompanyMenuClose = () => {
+		openCompanyMenu(null);
 	};
 
 	return (
@@ -222,7 +240,16 @@ const Header = () => {
 						Developers
 					</SiteHeaderNavItem>
 					<DevelopersMenuWrapper open={openDeveloper} anchorEl={DeveloperEl} onClose={handleDeveloperMenuClose} />
-					<SiteHeaderNavItem component='li'>Company</SiteHeaderNavItem>
+					<SiteHeaderNavItem
+						component='li'
+						id='compant-popper-button'
+						aria-controls='company-popper'
+						aria-haspopup='true'
+						onMouseEnter={handleCompanyMenuOpen}
+						aria-expanded={openCompany ? 'true' : undefined}>
+						Company
+					</SiteHeaderNavItem>
+					<CompanyMenuWrapper open={openCompany} anchorEl={CompanyEl} onClose={handleCompanyMenuClose} />
 					<SiteHeaderNavItem component='li'>Pricing</SiteHeaderNavItem>
 				</SiteHeaderNav>
 				<SignInButton

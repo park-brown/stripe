@@ -42,7 +42,7 @@ const DeveloperPopperFooter = styled(Box, { name: 'developers-popper-footer' })(
 	gridTemplateAreas: `"API-reference API-status"
                       "support API-changeLog"`
 }));
-const FooterInnerBox = styled(Box, { name: 'footer-inner-box' })(({ theme, gridArea }) => ({
+export const FooterInnerBox = styled(Box, { name: 'footer-inner-box' })(({ theme, gridArea }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'flex-start',
@@ -72,12 +72,12 @@ const DeveloperPopperBodyHeader = styled(Box, { name: 'developer-popper-body-hea
 		}
 	}
 }));
-const DeveloperPopperIconContainer = styled(Box, { name: 'developer-popper-icon-container' })(({ theme }) => ({
+export const DeveloperPopperIconContainer = styled(Box, { name: 'developer-popper-icon-container' })(({ theme }) => ({
 	width: '16px',
 	height: '16px',
 	margin: '0px 10px 0 0'
 }));
-const DeveloperPopperTextContainer = styled(Box, { name: 'developer-popper-text-container' })(({ theme }) => ({
+export const DeveloperPopperTextContainer = styled(Box, { name: 'developer-popper-text-container' })(({ theme }) => ({
 	flexGrow: 1,
 	height: '100%',
 	display: 'flex',
