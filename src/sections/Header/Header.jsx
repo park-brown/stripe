@@ -7,6 +7,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ProductMenuWrapper from '../../components/ProductMenu/ProductMenuWrapper';
 import UsecaseMenuWrapper from '../../components/UsecaseMenu/UsecaseMenuWrapper';
+import DevelopersMenuWrapper from '../../components/DevelopersMenu/DevelopersMenuWrapper';
 
 const StripeAppBar = styled(AppBar, { name: 'stripe-appbar' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
@@ -145,7 +146,7 @@ const MenuButton = styled(IconButton, { name: 'stripe-menu-nav' })(({ theme }) =
 }));
 
 const Header = () => {
-	/*product state */
+	/*product popper state */
 
 	const [productEl, openProductMenu] = React.useState(null);
 	const openProduct = Boolean(productEl);
@@ -153,12 +154,13 @@ const Header = () => {
 	const handleProductMenuOpen = (event) => {
 		openProductMenu(event.target);
 		openUsecaseMenu(null);
+		openDeveloperMenu(null);
 	};
 	const handleProductMenuClose = () => {
 		openProductMenu(null);
 	};
 
-	/*usecase state */
+	/*usecase popper state */
 
 	const [usecaseEl, openUsecaseMenu] = React.useState(null);
 	const openUsecase = Boolean(usecaseEl);
@@ -166,9 +168,23 @@ const Header = () => {
 	const handleUsecaseMenuOpen = (event) => {
 		openUsecaseMenu(event.target);
 		openProductMenu(null);
+		openDeveloperMenu(null);
 	};
 	const handleUsecaseMenuClose = () => {
 		openUsecaseMenu(null);
+	};
+	/*developer popper state */
+
+	const [DeveloperEl, openDeveloperMenu] = React.useState(null);
+	const openDeveloper = Boolean(DeveloperEl);
+
+	const handleDeveloperMenuOpen = (event) => {
+		openDeveloperMenu(event.target);
+		openProductMenu(null);
+		openUsecaseMenu(null);
+	};
+	const handleDeveloperMenuClose = () => {
+		openDeveloperMenu(null);
 	};
 
 	return (
@@ -188,15 +204,24 @@ const Header = () => {
 					<ProductMenuWrapper open={openProduct} anchorEl={productEl} onClose={handleProductMenuClose} />
 					<SiteHeaderNavItem
 						component='li'
-						id='usecase-menu-button'
-						aria-controls='usecase-menu'
+						id='usecase-popper-button'
+						aria-controls='usecase-popper'
 						aria-haspopup='true'
 						onMouseEnter={handleUsecaseMenuOpen}
 						aria-expanded={openUsecase ? 'true' : undefined}>
 						Use cases
 					</SiteHeaderNavItem>
 					<UsecaseMenuWrapper open={openUsecase} anchorEl={usecaseEl} onClose={handleUsecaseMenuClose} />
-					<SiteHeaderNavItem component='li'>Developers</SiteHeaderNavItem>
+					<SiteHeaderNavItem
+						component='li'
+						id='developer-popper-button'
+						aria-controls='developer-popper'
+						aria-haspopup='true'
+						onMouseEnter={handleDeveloperMenuOpen}
+						aria-expanded={openDeveloper ? 'true' : undefined}>
+						Developers
+					</SiteHeaderNavItem>
+					<DevelopersMenuWrapper open={openDeveloper} anchorEl={DeveloperEl} onClose={handleDeveloperMenuClose} />
 					<SiteHeaderNavItem component='li'>Company</SiteHeaderNavItem>
 					<SiteHeaderNavItem component='li'>Pricing</SiteHeaderNavItem>
 				</SiteHeaderNav>
