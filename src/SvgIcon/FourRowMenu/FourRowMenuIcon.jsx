@@ -7,11 +7,11 @@ let FourRowMenuIcon = (props) => {
 			<path
 				d='M1 14.5h14m-14-4h14m-14-4h14m-14-4h14'
 				stroke='#88add2'
-				stroke-width='2'
+				strokeWidth='2'
 				fill='rgb(136, 173, 210)'
 				fillRule='evenodd'
-				stroke-linecap='round'
-				stroke-linejoin='round'></path>
+				strokeLinecap='round'
+				strokeLinejoin='round'></path>
 		</SvgIcon>
 	);
 };
