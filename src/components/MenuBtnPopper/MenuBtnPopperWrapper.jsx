@@ -211,7 +211,7 @@ const MenuBtnPopperWrapper = ({ anchorEl, open, onClose }) => {
 							<MenuPopperIconContainer>
 								<PaymentLinksIcon />
 							</MenuPopperIconContainer>
-							<Typography variant='nav_menu_inner_label' sx={{ color: '#0a2540' }}>
+							<Typography variant='nav_menu_inner_label' sx={{ color: '#0a2540', whiteSpace: 'nowrap' }}>
 								payment links
 							</Typography>
 							<CustomArrowForwardIos />
