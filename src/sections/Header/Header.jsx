@@ -9,6 +9,7 @@ import ProductMenuWrapper from '../../components/ProductMenu/ProductMenuWrapper'
 import UsecaseMenuWrapper from '../../components/UsecaseMenu/UsecaseMenuWrapper';
 import DevelopersMenuWrapper from '../../components/DevelopersMenu/DevelopersMenuWrapper';
 import CompanyMenuWrapper from '../../components/CompanyMenu/CompanyMenuWrapper';
+import MenuBtnPopperWrapper from '../../components/MenuBtnPopper/MenuBtnPopperWrapper';
 
 const StripeAppBar = styled(AppBar, { name: 'stripe-appbar' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
@@ -204,7 +205,16 @@ const Header = () => {
 	const handleCompanyMenuClose = () => {
 		openCompanyMenu(null);
 	};
+	/*Menu button popper state */
+	const [MenuBtnEl, openMenuBtnMenu] = React.useState(null);
+	const openMenuBtn = Boolean(MenuBtnEl);
 
+	const handlMenuBtnOpen = (event) => {
+		openMenuBtnMenu(document.body);
+	};
+	const handleMenuBtnClose = () => {
+		openMenuBtnMenu(null);
+	};
 	return (
 		<StripeAppBar position='static'>
 			<StripeToolbar>
@@ -261,9 +271,18 @@ const Header = () => {
 					}>
 					Sign in
 				</SignInButton>
-				<MenuButton>
+				<MenuButton
+					id='menu-popper-button'
+					aria-controls='menu-popper'
+					aria-haspopup='true'
+					onClick={handlMenuBtnOpen}
+					aria-expanded={openMenuBtn ? 'true' : undefined}>
 					<MenuIcon />
 				</MenuButton>
+				<MenuBtnPopperWrapper
+					open={openMenuBtn}
+					anchorEl={MenuBtnEl ? MenuBtnEl : null}
+					onClose={handleMenuBtnClose}></MenuBtnPopperWrapper>
 			</StripeToolbar>
 		</StripeAppBar>
 	);
