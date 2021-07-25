@@ -298,7 +298,7 @@ const MenuBtnPopperWrapper = ({ anchorEl, open, onClose }) => {
 				{
 					name: 'offset',
 					options: {
-						offset: [0, -60] // header height equals to 76px, set distance to 60 to give popper 16px margin top
+						offset: [0, -60] // use prevent overflow to set boundaries,
 					}
 				},
 				{

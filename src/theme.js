@@ -22,7 +22,18 @@ const theme = createTheme({
 			desktop: 1440
 		}
 	},
-	palette: {},
+	palette: {
+		canvas: {
+			gradientColorZero: '#a960ee',
+			gradientColorOne: ' #ff333d',
+			gradientColorTwo: '#90e0ff',
+			gradientColorThree: '#ffcb57',
+			gradientColorZeroTransparent: 'rgba(169,96,238,0)',
+			gradientColorOneTransparent: 'rgba(255,51,61,0)',
+			gradientColorTwoTransparent: 'rgba(144,224,255,0)',
+			gradientColorThreeTransparent: 'rgba(255,203,87,0)'
+		}
+	},
 	spacing: 4,
 	typography: {
 		fontFamily: ['sohne-var', 'Helvetica Neue', 'Arial', 'sans - serif'].join(),

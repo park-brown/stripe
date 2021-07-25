@@ -13,7 +13,7 @@ import MenuBtnPopperWrapper from '../../components/MenuBtnPopper/MenuBtnPopperWr
 
 const StripeAppBar = styled(AppBar, { name: 'stripe-appbar' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
-		backgroundColor: 'black',
+		backgroundColor: 'transparent',
 		color: theme.palette.common.white
 	}
 }));
@@ -223,7 +223,7 @@ const Header = () => {
 		openMenuBtnMenu(null);
 	};
 	return (
-		<StripeAppBar position='static'>
+		<StripeAppBar position='static' elevation={0}>
 			<StripeToolbar>
 				<StripeLogo />
 				<SiteHeaderNav component='ul'>
