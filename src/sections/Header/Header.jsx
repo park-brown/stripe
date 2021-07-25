@@ -74,7 +74,7 @@ const SiteHeaderNavItem = styled(Button, {
 	}
 }));
 
-const SignInButton = styled(Button, { name: 'sign-in-cta' })(({ theme }) => ({
+export const SignInButton = styled(Button, { name: 'sign-in-cta' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		display: 'none'
 	},
@@ -205,6 +205,13 @@ const Header = () => {
 	const handleCompanyMenuClose = () => {
 		openCompanyMenu(null);
 	};
+	/*when hover over pricing button, close all popper */
+	const closeAll = () => {
+		openProductMenu(null);
+		openUsecaseMenu(null);
+		openDeveloperMenu(null);
+		openCompanyMenu(null);
+	};
 	/*Menu button popper state */
 	const [MenuBtnEl, openMenuBtnMenu] = React.useState(null);
 	const openMenuBtn = Boolean(MenuBtnEl);
@@ -260,7 +267,9 @@ const Header = () => {
 						Company
 					</SiteHeaderNavItem>
 					<CompanyMenuWrapper open={openCompany} anchorEl={CompanyEl} onClose={handleCompanyMenuClose} />
-					<SiteHeaderNavItem component='li'>Pricing</SiteHeaderNavItem>
+					<SiteHeaderNavItem component='li' onMouseEnter={closeAll}>
+						Pricing
+					</SiteHeaderNavItem>
 				</SiteHeaderNav>
 				<SignInButton
 					endIcon={
