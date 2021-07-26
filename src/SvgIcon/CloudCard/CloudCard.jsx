@@ -6,38 +6,38 @@ let CloudCard = (props) => {
 		<SvgIcon {...props} titleAccess='cloud card' viewBox='0 0 460 700'>
 			<defs>
 				<linearGradient id='HomepageIncrementPhone__imageGradientA' x1='50%' x2='50%' y1='0%' y2='88.24%'>
-					<stop offset='0%' stop-color='#AC9CC0'></stop>
-					<stop offset='100%' stop-color='#F2D6DF'></stop>
+					<stop offset='0%' stopColor='#AC9CC0'></stop>
+					<stop offset='100%' stopColor='#F2D6DF'></stop>
 				</linearGradient>
 				<linearGradient id='HomepageIncrementPhone__imageGradientB' x1='50%' x2='50%' y1='0%' y2='100%'>
-					<stop offset='0%' stop-color='#6F74A9'></stop>
-					<stop offset='80%' stop-color='#515997'></stop>
-					<stop offset='100%' stop-color='#323C83'></stop>
+					<stop offset='0%' stopColor='#6F74A9'></stop>
+					<stop offset='80%' stopColor='#515997'></stop>
+					<stop offset='100%' stopColor='#323C83'></stop>
 				</linearGradient>
 				<linearGradient id='HomepageIncrementPhone__imageGradientC' x1='0%' x2='100%' y1='50%' y2='50%'>
-					<stop offset='0%' stop-color='#B1AFCC'></stop>
-					<stop offset='100%' stop-color='#7B80B1'></stop>
+					<stop offset='0%' stopColor='#B1AFCC'></stop>
+					<stop offset='100%' stopColor='#7B80B1'></stop>
 				</linearGradient>
 				<linearGradient id='HomepageIncrementPhone__imageGradientD' x1='0%' x2='100%' y1='0%' y2='0%'>
-					<stop offset='0%' stop-color='#EB938A'></stop>
-					<stop offset='90%' stop-color='#E6887F'></stop>
-					<stop offset='100%' stop-color='#B74840'></stop>
+					<stop offset='0%' stopColor='#EB938A'></stop>
+					<stop offset='90%' stopColor='#E6887F'></stop>
+					<stop offset='100%' stopColor='#B74840'></stop>
 				</linearGradient>
 				<linearGradient id='HomepageIncrementPhone__imageGradientE' x1='0%' x2='100%' y1='50%' y2='50%'>
-					<stop offset='0%' stop-color='#FFF' stop-opacity='0'></stop>
-					<stop offset='100%' stop-color='#FFF' stop-opacity='.5'></stop>
+					<stop offset='0%' stopColor='#FFF' stopOpacity='0'></stop>
+					<stop offset='100%' stopColor='#FFF' stopOpacity='.5'></stop>
 				</linearGradient>
 				<linearGradient id='HomepageIncrementPhone__imageGradientF' x1='50%' x2='50%' y1='60%' y2='100%'>
-					<stop offset='0%' stop-color='#4FBED4'></stop>
-					<stop offset='100%' stop-color='#439CCA'></stop>
+					<stop offset='0%' stopColor='#4FBED4'></stop>
+					<stop offset='100%' stopColor='#439CCA'></stop>
 				</linearGradient>
 				<linearGradient id='HomepageIncrementPhone__imageGradientG' x1='50%' x2='50%' y1='0%' y2='100%'>
-					<stop offset='0%' stop-color='#52468C' stop-opacity='.8'></stop>
-					<stop offset='100%' stop-color='#52468C' stop-opacity='.2'></stop>
+					<stop offset='0%' stopColor='#52468C' stopOpacity='.8'></stop>
+					<stop offset='100%' stopColor='#52468C' stopOpacity='.2'></stop>
 				</linearGradient>
 				<linearGradient id='HomepageIncrementPhone__imageGradientH' x1='50%' x2='50%' y1='0%' y2='100%'>
-					<stop offset='0%' stop-color='#F2B532'></stop>
-					<stop offset='100%' stop-color='#EB9234'></stop>
+					<stop offset='0%' stopColor='#F2B532'></stop>
+					<stop offset='100%' stopColor='#EB9234'></stop>
 				</linearGradient>
 			</defs>
 			<path
