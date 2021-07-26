@@ -736,8 +736,3 @@ class Gradient {
  */
 var gradient = new Gradient();
 gradient.initGradient('#gradient-canvas');
-const color = ['#a960ee', ' #ff333d', '#90e0ff', '#ffcb57'];
-
-const nomalizedColor = normalizeColor('#a960ee');
-console.log('nomalizedColor:', nomalizedColor);
-// gradient.sectionColors()
