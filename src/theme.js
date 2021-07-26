@@ -139,6 +139,34 @@ theme.typography = {
 		fontSize: '18px',
 		letterSpacing: '0.4px',
 		lineHeight: '28px'
+	},
+	CheckoutPhoneGraphic__description: {
+		fontSize: '11px',
+		lineHeight: '16px',
+		letterSpacing: '0.2px',
+		fontWeight: 425,
+		color: '#0a2540',
+		textAlign: 'center'
+	},
+	CheckoutPhoneGraphic__price: {
+		fontSize: '11px',
+		lineHeight: '16px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#0a2540',
+		textAlign: 'center',
+		opacity: 0.8
+	},
+	CheckoutPhoneGraphic__input__label: {
+		fontSize: '11px',
+		lineHeight: '20px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#0a2540',
+		textAlign: 'left',
+		opacity: 0.8,
+		display: 'flex',
+		alignItems: 'center'
 	}
 };
 export default theme;
