@@ -4,6 +4,14 @@ import { styled } from '@material-ui/core/styles';
 import { ArrowForwardIos } from '@material-ui/icons';
 import HeroSectionDashBoardWrapper from '../../components/HeroSectionDashBoardWrapper/HeroSectionDashBoardWrapper';
 import PhoneOnCheckOut from '../../components/PhonnOnCheckOut/PhoneOnCheckOut';
+import GoogleIcon from '../../SvgIcon/Google/GoogleIcon';
+import GrabLogo from '../../SvgIcon/GrabLogo/GrabLogo';
+import GrainLogo from '../../SvgIcon/GrainLogo/GrainLogo';
+import ZoomLogo from '../../SvgIcon/Zoom/ZoomLogo';
+import SaleForceLogo from '../../SvgIcon/SaleForce/SaleForeceLogo';
+import CarousellLogo from '../../SvgIcon/Carousell/CarousellLogo';
+import CastleryLogo from '../../SvgIcon/Castlery/CastleryLogo';
+import AmazonLogo from '../../SvgIcon/Amazon/AmazonLogo';
 
 const HeroContainer = styled(Box, { name: 'hero-section-container' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
@@ -13,6 +21,8 @@ const HeroContainer = styled(Box, { name: 'hero-section-container' })(({ theme }
 		right: 0,
 		overflow: 'hidden',
 		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
 		justifyContent: 'center',
 		zIndex: 2 // hero container zindex set  to  2
 	},
@@ -204,7 +214,49 @@ const HeroSectionGraphic = styled(Box, { name: 'hero-section-graphic' })(({ them
 	flexGrow: 1,
 	alignSelf: 'stretch'
 }));
-
+const UserLogoContainer = styled(Box, { name: 'user-logo-container' })(({ theme }) => ({
+	[theme.breakpoints.up('mobile')]: {
+		width: '100%',
+		maxWidth: 'calc(100vw - 32px)',
+		padding: theme.spacing(0, 0, 18, 0),
+		margin: theme.spacing(0, 4),
+		display: 'grid',
+		gridTemplateColumns: 'repeat(2,1fr)',
+		gridTemplateRows: 'repeat(4,40px)',
+		gap: '60px 0 ',
+		gridTemplateAreas: `"Google      Grab"
+		                    "Grain       Zoom"
+												"SalesForce  Carousell"
+												"Castlery    Amazon"`
+	},
+	[theme.breakpoints.up('tablet')]: {
+		display: 'grid',
+		gridTemplateColumns: 'repeat(4,1fr)',
+		gridTemplateRows: 'repeat(2,40px)',
+		gap: '60px 0',
+		gridTemplateAreas: `"Google      Grab         Grain       Zoom"
+		                    "SalesForce  Carousell   Castlery    Amazon"`
+	},
+	[theme.breakpoints.up('tabletX')]: {
+		display: 'grid',
+		gridTemplateColumns: 'repeat(4,1fr)',
+		gridTemplateRows: 'repeat(2,40px)',
+		gap: '60px 0',
+		gridTemplateAreas: `"Google      Grab         Grain       Zoom"
+		                    "SalesForce  Carousell   Castlery    Amazon"`
+	},
+	[theme.breakpoints.up('laptop')]: {
+		maxWidth: '1080px',
+		margin: '0 auto',
+		padding: '50px 0 110px 0',
+		display: 'grid',
+		gridTemplateColumns: 'repeat(4,1fr)',
+		gridTemplateRows: 'repeat(2,40px)',
+		gap: '60px 0',
+		gridTemplateAreas: `"Google      Grab         Grain       Zoom"
+		                    "SalesForce  Carousell   Castlery    Amazon"`
+	}
+}));
 const Hero = () => {
 	return (
 		<HeroContainer>
@@ -239,6 +291,33 @@ const Hero = () => {
 					<HeroSectionDashBoardWrapper />
 				</HeroSectionGraphic>
 			</HeroSectionLayOutContainer>
+			<UserLogoContainer>
+				{/* Had to pass gridArea to Box , otherwise console screams unknow DOM attribute gridArea */}
+				<Box gridArea='Google'>
+					<GoogleIcon />
+				</Box>
+				<Box gridArea='Grab'>
+					<GrabLogo />
+				</Box>
+				<Box gridArea='Grain'>
+					<GrainLogo />
+				</Box>
+				<Box gridArea='Zoom'>
+					<ZoomLogo />
+				</Box>
+				<Box gridArea='SalesForce'>
+					<SaleForceLogo />
+				</Box>
+				<Box gridArea='Carousell'>
+					<CarousellLogo />
+				</Box>
+				<Box gridArea='Castlery'>
+					<CastleryLogo />
+				</Box>
+				<Box gridArea='Amazon'>
+					<AmazonLogo />
+				</Box>
+			</UserLogoContainer>
 		</HeroContainer>
 	);
 };
