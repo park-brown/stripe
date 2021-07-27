@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, Button } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import { ArrowForwardIos } from '@material-ui/icons';
+import HeroSectionDashBoardWrapper from '../../components/HeroSectionDashBoardWrapper/HeroSectionDashBoardWrapper';
 import PhoneOnCheckOut from '../../components/PhonnOnCheckOut/PhoneOnCheckOut';
 
 const HeroContainer = styled(Box, { name: 'hero-section-container' })(({ theme }) => ({
@@ -204,28 +205,6 @@ const HeroSectionGraphic = styled(Box, { name: 'hero-section-graphic' })(({ them
 	alignSelf: 'stretch'
 }));
 
-const HeroSectionGraphicDashBoard = styled('div', { name: 'hero-section-graphic-dash-board' })(({ theme }) => ({
-	display: 'grid',
-	gridTemplateRows: 'auto',
-	gridTemplateColumns: '152px 1fr',
-	gap: '24px',
-	width: '929px',
-	height: '486px',
-	padding: '24px',
-	borderRadius: '8px',
-	background: 'linear-gradient(hsla(0,0%,100%,.4),hsla(0,0%,100%,.3) 25%,rgba(246,249,252,.3) 50%,#f6f9fc 60%)',
-	boxShadow:
-		'inset 0 1px 1px 0 hsl(0deg 0% 100% / 10%), 0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%)',
-	userSelect: ' none',
-	position: 'absolute',
-	top: 0,
-	// sidebar right side stick to the right side of the phone, 264(phone width) + 40 (phone left position poperty) -152(sidebar width) - 24(padding) = 128px
-	left: '128px',
-	margin: 0,
-	zIndex: 4,
-	pointerEvents: 'none'
-}));
-
 const Hero = () => {
 	return (
 		<HeroContainer>
@@ -257,8 +236,7 @@ const Hero = () => {
 				</HeroSectionCopyContainer>
 				<HeroSectionGraphic>
 					<PhoneOnCheckOut />
-
-					<HeroSectionGraphicDashBoard></HeroSectionGraphicDashBoard>
+					<HeroSectionDashBoardWrapper />
 				</HeroSectionGraphic>
 			</HeroSectionLayOutContainer>
 		</HeroContainer>

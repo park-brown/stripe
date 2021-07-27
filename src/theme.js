@@ -167,6 +167,32 @@ theme.typography = {
 		opacity: 0.8,
 		display: 'flex',
 		alignItems: 'center'
+	},
+	DashboardGraphic__sidebar_title: {
+		fontSize: '11px',
+		lineHeight: '20px',
+		letterSpacing: '0.8px',
+		fontWeight: 625,
+		color: '#fff',
+		textAlign: 'center',
+		textTransform: 'uppercase',
+		whiteSpace: 'nowrap'
+	},
+	DashboardGraphic__content_toolbar__search__field: {
+		fontSize: '11px',
+		lineHeight: '14px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#62788d',
+		textAlign: 'left'
+	},
+	DashboardGraphic__content_graphicBox_toolbar_title: {
+		fontSize: '11px',
+		lineHeight: '14px',
+		letterSpacing: '0.2px',
+		fontWeight: 620,
+		color: '#425466',
+		textAlign: 'center'
 	}
 };
 export default theme;

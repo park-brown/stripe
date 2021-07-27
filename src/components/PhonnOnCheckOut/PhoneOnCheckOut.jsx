@@ -12,7 +12,7 @@ import CreditCardBackIcon from '../../SvgIcon/CreditCardBack/CreditCardBackIcon'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const HeroSectionGraphicIPhone = styled('figure', { name: 'hero-section-graphic-phone' })(({ theme }) => ({
 	width: '264px',
-	height: '533px',
+	height: '550px',
 	padding: '8px',
 	borderRadius: '36px',
 	background: '#f6f9fc',
