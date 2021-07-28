@@ -57,7 +57,7 @@ theme.typography = {
 	},
 	cta_button: {
 		fontFamily: "'sohne-var', 'Helvetica Neue', 'Arial', 'sans - serif'",
-		fontSize: '0.8rem',
+		fontSize: '15px',
 		fontWeight: 425,
 		lineHeight: '24px',
 		textTransform: 'capitalize'
@@ -193,6 +193,30 @@ theme.typography = {
 		fontWeight: 620,
 		color: '#425466',
 		textAlign: 'center'
+	},
+	unifiedPlatform_title_caption: {
+		fontSize: '18px',
+		lineHeight: '28px',
+		letterSpacing: '0.2px',
+		fontWeight: 620,
+		color: '#635bff'
+	},
+	unifiedPlatform_title_body: {
+		[theme.breakpoints.up('mobile')]: {
+			fontSize: '34px',
+			lineHeight: '42px',
+			letterSpacing: '0.2px',
+			fontWeight: 600,
+			color: '#0a2540'
+		},
+		[theme.breakpoints.up('tablet')]: {
+			fontSize: '30px',
+			lineHeight: '40px'
+		},
+		[theme.breakpoints.up('laptop')]: {
+			fontSize: '36px',
+			lineHeight: '48px'
+		}
 	}
 };
 export default theme;

@@ -259,7 +259,7 @@ const UserLogoContainer = styled(Box, { name: 'user-logo-container' })(({ theme 
 }));
 const Hero = () => {
 	return (
-		<HeroContainer>
+		<HeroContainer component='section'>
 			<HeroSectionCanvas id='gradient-canvas' />
 			<HeroSectionLayOutContainer>
 				<HeroSectionCopyContainer>
@@ -293,28 +293,28 @@ const Hero = () => {
 			</HeroSectionLayOutContainer>
 			<UserLogoContainer>
 				{/* Had to pass gridArea to Box , otherwise console screams unknow DOM attribute gridArea */}
-				<Box gridArea='Google'>
+				<Box gridArea='Google' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<GoogleIcon />
 				</Box>
-				<Box gridArea='Grab'>
+				<Box gridArea='Grab' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<GrabLogo />
 				</Box>
-				<Box gridArea='Grain'>
+				<Box gridArea='Grain' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<GrainLogo />
 				</Box>
-				<Box gridArea='Zoom'>
+				<Box gridArea='Zoom' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<ZoomLogo />
 				</Box>
-				<Box gridArea='SalesForce'>
+				<Box gridArea='SalesForce' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<SaleForceLogo />
 				</Box>
-				<Box gridArea='Carousell'>
+				<Box gridArea='Carousell' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<CarousellLogo />
 				</Box>
-				<Box gridArea='Castlery'>
+				<Box gridArea='Castlery' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<CastleryLogo />
 				</Box>
-				<Box gridArea='Amazon'>
+				<Box gridArea='Amazon' sx={{ display: 'flex', justifyContent: 'center' }}>
 					<AmazonLogo />
 				</Box>
 			</UserLogoContainer>
