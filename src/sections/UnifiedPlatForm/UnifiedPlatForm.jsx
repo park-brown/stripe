@@ -3,6 +3,7 @@ import { Box, Typography, Button, Link } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import { ArrowForwardIos } from '@material-ui/icons';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import VisaGraphic from '../../components/VisaCard/VisaGraphic';
 const UnifiedPlatFormContainer = styled(Box, { name: 'unified-platform-section' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
@@ -71,7 +72,7 @@ const LayOut = styled(Box, { name: 'unified-platform-layout' })(({ theme }) => (
                         "unified-platform-graphic    unified-platform-graphic"`
 	}
 }));
-const UnifiedPlatFormTitle = styled('Box', { name: 'unified-platform-title ' })(({ theme }) => ({
+const UnifiedPlatFormTitle = styled(Box, { name: 'unified-platform-title ' })(({ theme }) => ({
 	gridArea: 'unified-platform-title',
 	display: 'flex',
 	flexDirection: 'column',
@@ -126,8 +127,8 @@ const UnifiedPlatformGraphicGrid = styled(Box, { name: 'unified-platform-graphic
 		// 0 - 600
 		position: 'absolute',
 		top: '-72px',
-		width: '397px',
-		height: '552px',
+		// width: '397px',
+		// height: '552px',
 		display: 'grid',
 		gridTemplateColumns: '112px 141px 58px 38px',
 		gridTemplateRows: '107px 87px 125px 185px',
@@ -212,7 +213,9 @@ const UnifiedPlatForm = () => {
 						</CtaButton>
 					</Box>
 					<UnifiedPlatformGraphic>
-						<UnifiedPlatformGraphicGrid></UnifiedPlatformGraphicGrid>
+						<UnifiedPlatformGraphicGrid>
+							<VisaGraphic gridArea='Visa' />
+						</UnifiedPlatformGraphicGrid>
 					</UnifiedPlatformGraphic>
 				</LayOut>
 			</LayOutContainer>

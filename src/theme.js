@@ -217,6 +217,18 @@ theme.typography = {
 			fontSize: '36px',
 			lineHeight: '48px'
 		}
+	},
+	PostmatesCardDesign__fleetLabel: {
+		fontSize: '16px',
+		lineHeight: '22.4px',
+		letterSpacing: '0.2px',
+		fontWeight: 300
+	},
+	Visa__Card__Name: {
+		fontSize: '15px',
+		lineHeight: '22.4px',
+		letterSpacing: '0.2px',
+		fontWeight: 500
 	}
 };
 export default theme;
