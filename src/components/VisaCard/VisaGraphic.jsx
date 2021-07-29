@@ -153,7 +153,7 @@ const CardName = styled(Box, { name: 'visa-card-name' })(({ theme }) => ({
 let VisaGraphic = ({ gridArea }) => {
 	const interval = 20000;
 	const [index, setIndex] = useState(0);
-	// shuffle effect
+	//shuffle effect
 	useEffect(() => {
 		switch (index) {
 			case 0:
@@ -188,7 +188,6 @@ let VisaGraphic = ({ gridArea }) => {
 		}
 	}, [index]);
 
-	console.log('index:', index);
 	return (
 		<VisaGraphicWrapper gridArea={gridArea}>
 			<VisaGraphicDesigns>
