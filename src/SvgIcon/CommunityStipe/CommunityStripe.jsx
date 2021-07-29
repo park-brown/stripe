@@ -4,7 +4,7 @@ import { styled } from '@material-ui/system';
 let CommunityStripe = (props) => {
 	return (
 		<SvgIcon {...props} titleAccess='community-stripe' viewBox='0 0 103 107'>
-			<g fill='#FFF' fill-rule='evenodd' transform='translate(.024 .775)'>
+			<g fill='#FFF' fillRule='evenodd' transform='translate(.024 .775)'>
 				<circle cx='10.2' cy='52.83' r='10.2' fillOpacity='.5'></circle>
 				<circle cx='30.59' cy='30.59' r='10.2' fillOpacity='.5'></circle>
 				<circle cx='30.59' cy='75.07' r='10.2' fillOpacity='.5'></circle>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Box, Fade, Zoom, Slide } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import PostMateStripe from '../../SvgIcon/PostMate/PostMateStripe';
 import DebitCardChip from '../../SvgIcon/DebitCardChip/DebitCardChip';
@@ -151,22 +151,66 @@ const CardName = styled(Box, { name: 'visa-card-name' })(({ theme }) => ({
 }));
 
 let VisaGraphic = ({ gridArea }) => {
+	const interval = 20000;
+	const [index, setIndex] = useState(0);
+	// shuffle effect
+	useEffect(() => {
+		switch (index) {
+			case 0:
+				setTimeout(
+					() => {
+						setIndex((prev) => prev + 1);
+					},
+
+					interval
+				);
+				break;
+			case 1:
+				setTimeout(
+					() => {
+						setIndex((prev) => prev + 1);
+					},
+
+					interval
+				);
+				break;
+			case 2:
+				setTimeout(
+					() => {
+						setIndex(0);
+					},
+
+					interval
+				);
+				break;
+			default:
+				setIndex(0);
+		}
+	}, [index]);
+
+	console.log('index:', index);
 	return (
 		<VisaGraphicWrapper gridArea={gridArea}>
 			<VisaGraphicDesigns>
-				{/* <PostMateCardDesign>
-					<PostMateLogo />
-					<PostMateStripe />
-					<FleetLabel>fleet</FleetLabel>
-				</PostMateCardDesign> */}
-				{/* <CommunityCardDesign>
-					<CommunityLogo />
-					<CommunityStripe />
-				</CommunityCardDesign> */}
-				{/* <ZestfulCardDesign>
-					<ZestfulLogo />
-					<ZestfulLemon />
-				</ZestfulCardDesign> */}
+				<Fade in={index === 0}>
+					<PostMateCardDesign>
+						<PostMateLogo />
+						<PostMateStripe index={index} />
+						<FleetLabel>fleet</FleetLabel>
+					</PostMateCardDesign>
+				</Fade>
+				<Slide direction='right' in={index === 1}>
+					<CommunityCardDesign>
+						<CommunityLogo />
+						<CommunityStripe index={index} />
+					</CommunityCardDesign>
+				</Slide>
+				<Zoom in={index === 2}>
+					<ZestfulCardDesign>
+						<ZestfulLogo />
+						<ZestfulLemon />
+					</ZestfulCardDesign>
+				</Zoom>
 			</VisaGraphicDesigns>
 			<ChipContainer>
 				<DebitCardChip />
