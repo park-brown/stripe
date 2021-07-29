@@ -6,13 +6,23 @@ import DebitCardChip from '../../SvgIcon/DebitCardChip/DebitCardChip';
 import VisaLogo from '../../SvgIcon/VisaLogo/VisaLogo';
 import CommunityStripe from '../../SvgIcon/CommunityStipe/CommunityStripe';
 const VisaGraphicWrapper = styled(Box, { name: 'visa-graphic-wrapper' })(({ theme, gridArea }) => ({
-	position: 'relative',
-	width: '380px',
-	gridArea: gridArea,
-	height: '235px',
-	overflow: 'hidden',
-	borderRadius: '16px',
-	boxShadow: '0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%)'
+	[theme.breakpoints.up('mobile')]: {
+		position: 'relative',
+		width: '380px',
+		gridArea: gridArea,
+		height: '235px',
+		overflow: 'hidden',
+		borderRadius: '16px',
+		boxShadow: '0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%)',
+		transform: 'scale(0.371053)',
+		transformOrigin: 'top left'
+	},
+	[theme.breakpoints.up('tablet')]: {
+		transform: 'scale(0.665789)'
+	},
+	[theme.breakpoints.up('laptop')]: {
+		transform: 'scale(0.85)'
+	}
 }));
 const VisaGraphicDesigns = styled(Box, { name: 'visa-graphic-designs' })(({ theme }) => ({
 	position: 'absolute',
@@ -89,7 +99,7 @@ const ZestfulLogo = styled('figure', { name: 'Zestful-logo' })(({ theme }) => ({
 	top: '23px',
 	left: '29px'
 }));
-const ZestfulLemon = styled('figure', { name: 'Zestful-lemon' })(({ theme }) => ({
+const ZestfulLemon = styled('figure', { name: 'Zestful-lemon' })(({ theme, index }) => ({
 	backgroundImage:
 		'url(https://images.ctfassets.net/fzn2n1nzq965/5UPyWsxAvbXamxGLBfuTj3/426c7b5224259ded7bc95b21073f4c02/lemon.svg)',
 	objectFit: 'cover',
@@ -101,7 +111,19 @@ const ZestfulLemon = styled('figure', { name: 'Zestful-lemon' })(({ theme }) => 
 	position: 'absolute',
 	top: '50%',
 	left: '50%',
-	transform: 'translate(-50%,-50%)'
+	transform: 'translate(-50%,-50%)',
+	animation: `zoom  ${theme.transitions.easing.easeInOut} 300ms 225ms`,
+	'@keyframes zoom': {
+		'0%': {
+			transform: 'scale(1) translate(-50%,-50%) '
+		},
+		'50%': {
+			transform: 'scale(1.05) translate(-50%,-50%)'
+		},
+		'100%': {
+			transform: 'scale(1) translate(-50%,-50%)'
+		}
+	}
 }));
 const FleetLabel = styled('span', { name: 'postmate-fleet-label' })(({ theme }) => ({
 	...theme.typography.PostmatesCardDesign__fleetLabel,
@@ -207,7 +229,7 @@ let VisaGraphic = ({ gridArea }) => {
 				<Zoom in={index === 2}>
 					<ZestfulCardDesign>
 						<ZestfulLogo />
-						<ZestfulLemon />
+						<ZestfulLemon index={index} />
 					</ZestfulCardDesign>
 				</Zoom>
 			</VisaGraphicDesigns>
@@ -215,7 +237,15 @@ let VisaGraphic = ({ gridArea }) => {
 				<DebitCardChip />
 			</ChipContainer>
 			<VisaLogo />
-			<CardName>Jane Diaz</CardName>
+			<Fade in={index === 0}>
+				<CardName>Jane Diaz</CardName>
+			</Fade>
+			<Fade in={index === 1}>
+				<CardName>Micaela Bellow</CardName>
+			</Fade>
+			<Fade in={index === 2}>
+				<CardName>Thomas Degry</CardName>
+			</Fade>
 		</VisaGraphicWrapper>
 	);
 };
