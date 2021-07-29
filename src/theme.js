@@ -229,6 +229,27 @@ theme.typography = {
 		lineHeight: '22.4px',
 		letterSpacing: '0.2px',
 		fontWeight: 500
+	},
+	WarbyParkerCheckoutGraphic__title: {
+		fontSize: '11px',
+		lineHeight: '16px',
+		letterSpacing: '0.2px',
+		fontWeight: 620,
+		color: '#425466'
+	},
+	WarbyParkerCheckoutGraphic__description: {
+		fontSize: '11px',
+		lineHeight: '15px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#687792'
+	},
+	WarbyParkerCheckoutGraphic__sectionTitle: {
+		fontSize: '13px',
+		lineHeight: '16.8px',
+		letterSpacing: '0.2px',
+		fontWeight: 500,
+		color: '#425466'
 	}
 };
 export default theme;

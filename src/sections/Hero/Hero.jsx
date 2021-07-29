@@ -3,7 +3,7 @@ import { Box, Typography, Button } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import { ArrowForwardIos } from '@material-ui/icons';
 import HeroSectionDashBoardWrapper from '../../components/HeroSectionDashBoardWrapper/HeroSectionDashBoardWrapper';
-import PhoneOnCheckOut from '../../components/PhonnOnCheckOut/PhoneOnCheckOut';
+import PhoneOnCheckOut from '../../components/PhoneOnCheckOut/PhoneOnCheckOut';
 import GoogleIcon from '../../SvgIcon/Google/GoogleIcon';
 import GrabLogo from '../../SvgIcon/GrabLogo/GrabLogo';
 import GrainLogo from '../../SvgIcon/GrainLogo/GrainLogo';

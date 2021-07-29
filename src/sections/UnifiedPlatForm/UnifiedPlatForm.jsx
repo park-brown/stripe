@@ -4,6 +4,7 @@ import { styled } from '@material-ui/core/styles';
 import { ArrowForwardIos } from '@material-ui/icons';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import VisaGraphic from '../../components/VisaCard/VisaGraphic';
+import AnimatedApplePayGraphic from '../../components/AnimatedApplyPayGraphic/AnimatedApplePayGraphic';
 const UnifiedPlatFormContainer = styled(Box, { name: 'unified-platform-section' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
@@ -215,6 +216,7 @@ const UnifiedPlatForm = () => {
 					<UnifiedPlatformGraphic>
 						<UnifiedPlatformGraphicGrid>
 							<VisaGraphic gridArea='Visa' />
+							<AnimatedApplePayGraphic gridArea='Invoice-from-slack' />
 						</UnifiedPlatformGraphicGrid>
 					</UnifiedPlatformGraphic>
 				</LayOut>

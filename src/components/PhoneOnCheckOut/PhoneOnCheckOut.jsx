@@ -51,7 +51,7 @@ const IphoneCheckOutImage = styled('div', { name: 'check-out-image' })(({ theme 
 	justifyContent: 'center',
 	position: 'relative'
 }));
-const ApplyPayButton = styled(IconButton, { name: 'CheckoutPhoneGraphic__applePay' })(({ theme }) => ({
+export const ApplyPayButton = styled(IconButton, { name: 'CheckoutPhoneGraphic__applePay' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		...theme.typography.CheckoutPhoneGraphic__description,
 		width: '100%',
