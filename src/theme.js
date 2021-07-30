@@ -264,6 +264,41 @@ theme.typography = {
 		letterSpacing: '0.3px',
 		fontWeight: 300,
 		color: '#425466'
+	},
+	AwayCheckoutGraphic__title: {
+		fontSize: '15px',
+		lineHeight: '22px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#364657'
+	},
+	AwayCheckoutGraphic__cartItems: {
+		fontSize: '13px',
+		lineHeight: '22px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#425466'
+	},
+	AwayCheckoutGraphic__productName: {
+		fontSize: '13px',
+		lineHeight: '18px',
+		letterSpacing: '0.2px',
+		fontWeight: 550,
+		color: '#0a2540'
+	},
+	AwayCheckoutGraphic__productColor: {
+		fontSize: '13px',
+		lineHeight: '18px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#6b7c93'
+	},
+	AwayCheckoutGraphic__productTotal: {
+		fontSize: '13px',
+		lineHeight: '18px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#0a2540'
 	}
 };
 export default theme;

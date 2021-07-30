@@ -6,7 +6,7 @@ import { ApplyPayButton } from '../PhoneOnCheckOut/PhoneOnCheckOut';
 import ApplePayIcon from '../../SvgIcon/ApplePay/ApplePayIcon';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ApplePaySheetContainer from './ApplePaySheetContainer';
+import ApplePaySheetForWarbyParkerContainer from './ApplePaySheetForWarbyParker';
 const WarbyParkerCheckoutGraphic = styled(Box, { name: 'warby-checkout-graphic' })(({ theme }) => ({
 	position: 'absolute',
 	top: 0,
@@ -250,7 +250,7 @@ const WarbyParkerCheckoutGraphicWrapper = () => {
 					</Box>
 				</WarbyParkerCheckoutGraphicSectionRecommendProduct>
 			</WarbyParkerCheckoutGraphicSection>
-			<ApplePaySheetContainer />
+			<ApplePaySheetForWarbyParkerContainer />
 		</WarbyParkerCheckoutGraphic>
 	);
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, IconButton, Divider, InputBase } from '@material-ui/core';
+import { Box, Typography, IconButton, Divider, InputBase, Button } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import SereneCard from '../../SvgIcon/SereneCard/SereneIcon';
 import CloudCard from '../../SvgIcon/CloudCard/CloudCard';
@@ -104,6 +104,7 @@ const CountryOrRegionIputBase = styled(Box, { name: 'hero-section-phone-inner-co
 	                      "zip-code"`
 	})
 );
+
 const PhoneOnCheckOut = () => {
 	return (
 		<HeroSectionGraphicIPhone>
@@ -128,7 +129,7 @@ const PhoneOnCheckOut = () => {
 						HK$14 per quarter
 					</Typography>
 					<ApplyPayButton>
-						<ApplePayIcon />
+						<ApplePayIcon viewBox='0 0 34 14' />
 					</ApplyPayButton>
 					<Separator>or pay with card</Separator>
 					<Typography component='div' variant='CheckoutPhoneGraphic__input__label' className='email-label'>

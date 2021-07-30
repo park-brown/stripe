@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
-
 import WarbyParkerCheckoutGraphicWrapper from './WarbyParkerCheckoutGraphicWrapper';
+import AwayCheckoutGraphicWrapper from './AwayCheckoutGraphicWrapper';
 
 const Container = styled(Box, { name: 'animated-apple-pay-graphic' })(({ theme, gridArea }) => ({
 	position: 'relative',
@@ -28,7 +28,8 @@ const AnimatedApplePayGraphic = ({ gridArea }) => {
 	return (
 		<Container gridArea={gridArea}>
 			<Screen>
-				<WarbyParkerCheckoutGraphicWrapper />
+				{/* <WarbyParkerCheckoutGraphicWrapper /> */}
+				<AwayCheckoutGraphicWrapper />
 			</Screen>
 		</Container>
 	);

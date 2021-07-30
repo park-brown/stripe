@@ -106,7 +106,7 @@ const ApplePayFaceID = styled(Box, { name: 'apple-pay-face-id' })(({ theme }) =>
 	margin: '12px auto',
 	height: '40px'
 }));
-const ApplePaySheetContainer = () => {
+const ApplePaySheetForWarbyParkerContainer = () => {
 	return (
 		<ApplePaySheetWrapper>
 			<ApplePaySheetOverLay />
@@ -259,4 +259,4 @@ const ApplePaySheetContainer = () => {
 	);
 };
 
-export default ApplePaySheetContainer;
+export default ApplePaySheetForWarbyParkerContainer;
