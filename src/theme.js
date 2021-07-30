@@ -248,7 +248,21 @@ theme.typography = {
 		fontSize: '13px',
 		lineHeight: '16.8px',
 		letterSpacing: '0.2px',
-		fontWeight: 500,
+		fontWeight: 620,
+		color: '#425466'
+	},
+	apple__pay__sheet__cancel: {
+		fontSize: '13px',
+		lineHeight: '21px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#2a69fe'
+	},
+	apple__pay__sheet__checkOut__info: {
+		fontSize: '10px',
+		lineHeight: '16px',
+		letterSpacing: '0.3px',
+		fontWeight: 300,
 		color: '#425466'
 	}
 };
