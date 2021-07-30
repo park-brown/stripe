@@ -81,7 +81,7 @@ const AwayCheckoutGraphicFooter = styled(Box, { name: 'AwayCheckoutGraphic__foot
 	marginTop: 'auto',
 	borderTop: '1px solid #cfd7df'
 }));
-const CheckOutButton = styled(Button, { name: 'checkout-button' })(({ theme }) => ({
+export const CheckOutButton = styled(Button, { name: 'checkout-button' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
 		padding: ' 7px 0',

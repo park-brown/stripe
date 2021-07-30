@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, IconButton, Divider, InputBase, Button } from '@material-ui/core';
+import { Box, Typography, IconButton, Divider, InputBase } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import SereneCard from '../../SvgIcon/SereneCard/SereneIcon';
 import CloudCard from '../../SvgIcon/CloudCard/CloudCard';

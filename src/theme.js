@@ -269,7 +269,7 @@ theme.typography = {
 		fontSize: '15px',
 		lineHeight: '22px',
 		letterSpacing: '0.2px',
-		fontWeight: 300,
+		fontWeight: 500,
 		color: '#364657'
 	},
 	AwayCheckoutGraphic__cartItems: {
@@ -299,6 +299,21 @@ theme.typography = {
 		letterSpacing: '0.2px',
 		fontWeight: 300,
 		color: '#0a2540'
+	},
+	GlossierCheckoutCartGraphic__itemName: {
+		fontSize: '10px',
+		lineHeight: '10px',
+		letterSpacing: '0.2px',
+		fontWeight: 425,
+		color: '#0a2540'
+	},
+	GlossierCheckoutCartGraphic__itemPrice: {
+		fontSize: '10px',
+		lineHeight: '10px',
+		letterSpacing: '0.2px',
+		fontWeight: 425,
+		color: '#66738f'
 	}
 };
+
 export default theme;

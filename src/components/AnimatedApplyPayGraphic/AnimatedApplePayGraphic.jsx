@@ -3,6 +3,7 @@ import { Box } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import WarbyParkerCheckoutGraphicWrapper from './WarbyParkerCheckoutGraphicWrapper';
 import AwayCheckoutGraphicWrapper from './AwayCheckoutGraphicWrapper';
+import GlossierCheckoutGraphicWrapper from './GlossierCheckoutGraphicWrapper';
 
 const Container = styled(Box, { name: 'animated-apple-pay-graphic' })(({ theme, gridArea }) => ({
 	position: 'relative',
@@ -29,7 +30,8 @@ const AnimatedApplePayGraphic = ({ gridArea }) => {
 		<Container gridArea={gridArea}>
 			<Screen>
 				{/* <WarbyParkerCheckoutGraphicWrapper /> */}
-				<AwayCheckoutGraphicWrapper />
+				{/* <AwayCheckoutGraphicWrapper /> */}
+				<GlossierCheckoutGraphicWrapper />
 			</Screen>
 		</Container>
 	);
