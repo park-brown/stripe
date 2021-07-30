@@ -4,6 +4,7 @@ import { styled } from '@material-ui/core/styles';
 import AwayLogo from '../../SvgIcon/AwayLogo/AwayLogo';
 import { ApplyPayButton } from '../PhoneOnCheckOut/PhoneOnCheckOut';
 import ApplePayIcon from '../../SvgIcon/ApplePay/ApplePayIcon';
+import ApplePaySheetForAway from './ApplePaySheetForAway';
 const AwayCheckoutCheckoutGraphic = styled(Box, { name: 'away-checkout-graphic' })(({ theme }) => ({
 	position: 'absolute',
 	top: 0,
@@ -158,6 +159,7 @@ const AwayCheckoutGraphicWrapper = () => {
 				</ApplyPayButton>
 				<CheckOutButton>Checkout</CheckOutButton>
 			</AwayCheckoutGraphicFooter>
+			<ApplePaySheetForAway />
 		</AwayCheckoutCheckoutGraphic>
 	);
 };

@@ -6,8 +6,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import VisaIcon from '../../SvgIcon/Visa/VisaIcon';
 import FaceFeatures from '../../SvgIcon/FaceFeatures/FaceFeatures';
 import FaceBorders from '../../SvgIcon/FaceBorders.jsx/FaceBorders';
-import { FaceCheck } from './ApplePaySheetForAway';
-
+import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
 const ApplePaySheetWrapper = styled(Box, { name: 'apple-pay-sheet-wrapper' })(({ theme }) => ({
 	position: 'absolute',
 	top: 0,
@@ -107,7 +106,16 @@ const ApplePayFaceID = styled(Box, { name: 'apple-pay-face-id' })(({ theme }) =>
 	margin: '12px auto',
 	height: '40px'
 }));
-const ApplePaySheetForWarbyParker = () => {
+export const FaceCheck = styled(CheckCircleOutlineOutlinedIcon, { name: 'face-checked' })(({ theme }) => ({
+	position: 'absolute',
+	width: '24px',
+	height: '24px',
+	top: '50%',
+	left: '50%',
+	transform: 'translate(-50%,-50%)',
+	color: '#0278fc'
+}));
+const ApplePaySheetForAway = () => {
 	return (
 		<ApplePaySheetWrapper>
 			<ApplePaySheetOverLay />
@@ -247,17 +255,17 @@ const ApplePaySheetForWarbyParker = () => {
 						<Typography variant='apple__pay__sheet__checkOut__info'>pay total</Typography>
 					</Box>
 					<Box gridArea='pay-total'>
-						<Typography variant='apple__pay__sheet__checkOut__info'>$250.00</Typography>
+						<Typography variant='apple__pay__sheet__checkOut__info'>$270.00</Typography>
 					</Box>
 				</ApplePayTotal>
 				<ApplePayFaceID>
 					<FaceBorders />
 					<FaceFeatures />
-					{/* <FaceCheck/> */}
+					{/* <FaceCheck /> */}
 				</ApplePayFaceID>
 			</ApplePaySheet>
 		</ApplePaySheetWrapper>
 	);
 };
 
-export default ApplePaySheetForWarbyParker;
+export default ApplePaySheetForAway;
