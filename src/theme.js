@@ -194,6 +194,14 @@ theme.typography = {
 		color: '#425466',
 		textAlign: 'center'
 	},
+	DashboardGraphic__content_graphicBox_content_normal: {
+		fontSize: '11px',
+		lineHeight: '14px',
+		letterSpacing: '0.2px',
+		fontWeight: 300,
+		color: '#425466',
+		textAlign: 'center'
+	},
 	unifiedPlatform_title_caption: {
 		fontSize: '18px',
 		lineHeight: '28px',
@@ -313,6 +321,14 @@ theme.typography = {
 		letterSpacing: '0.2px',
 		fontWeight: 425,
 		color: '#66738f'
+	},
+	RadarDashboardGraphic__sidebar_navItem: {
+		fontSize: '13px',
+		fontWeight: '300',
+		letterSpacing: '.2px',
+		lineHeight: '20px',
+		color: '#425466',
+		textTransform: 'capitalize'
 	}
 };
 

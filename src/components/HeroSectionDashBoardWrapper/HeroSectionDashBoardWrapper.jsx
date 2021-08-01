@@ -46,16 +46,16 @@ const HeroSectionGraphicContent = styled('div', { name: 'hero-section-graphic-da
 	justifyContent: 'flex-start',
 	gap: theme.spacing(8)
 }));
-const HeroSectionGraphicContentToolbar = styled('div', { name: 'hero-section-graphic-dash-board-content-toobar' })(
-	({ theme }) => ({
-		width: '100%',
-		height: '20px',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'space-between'
-	})
-);
-const HeroSectionGraphicContentToolbarSearchField = styled(InputBase, {
+export const HeroSectionGraphicContentToolbar = styled('div', {
+	name: 'hero-section-graphic-dash-board-content-toobar'
+})(({ theme }) => ({
+	width: '100%',
+	height: '20px',
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'space-between'
+}));
+export const HeroSectionGraphicContentToolbarSearchField = styled(InputBase, {
 	name: 'hero-section-graphic-dash-board-content-toolbar-search-field'
 })(({ theme }) => ({
 	...theme.typography.DashboardGraphic__content_toolbar__search__field,
@@ -161,21 +161,21 @@ const ToolbarButton = styled(Button, { name: 'dash-board-toolbar-button' })(({ t
 	boxShadow: '0 0 1px 0 rgb(6 24 44 / 18%), 0 1px 2px 0 rgb(6 24 44 / 20%)',
 	borderRadius: '4px'
 }));
-const HeroSectionGraphicSidebarHeader = styled('div', { name: 'hero-section-graphic-dash-board-sidebar-header' })(
-	({ theme }) => ({
-		width: '100%',
-		height: '20px',
-		display: 'flex',
-		alignItems: 'center',
-		gap: '8px',
-		justifyContent: 'space-between',
-		'& > svg:nth-of-type(2)': {
-			width: '12px',
-			height: '12px',
-			fill: '#fff'
-		}
-	})
-);
+export const HeroSectionGraphicSidebarHeader = styled('div', {
+	name: 'hero-section-graphic-dash-board-sidebar-header'
+})(({ theme }) => ({
+	width: '100%',
+	height: '20px',
+	display: 'flex',
+	alignItems: 'center',
+	gap: '8px',
+	justifyContent: 'space-between',
+	'& > svg:nth-of-type(2)': {
+		width: '12px',
+		height: '12px',
+		fill: '#fff'
+	}
+}));
 const PositiveBadge = styled('div', { name: 'positve-growth-badge' })(({ theme }) => ({
 	...theme.typography.DashboardGraphic__content_toolbar__search__field,
 	margin: theme.spacing(0, 0, 0, 2),

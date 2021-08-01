@@ -31,7 +31,7 @@ const AnimatedApplePayGraphic = ({ gridArea }) => {
 			<Screen>
 				{/* <WarbyParkerCheckoutGraphicWrapper /> */}
 				{/* <AwayCheckoutGraphicWrapper /> */}
-				<GlossierCheckoutGraphicWrapper />
+				{/* <GlossierCheckoutGraphicWrapper /> */}
 			</Screen>
 		</Container>
 	);
