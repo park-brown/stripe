@@ -7,6 +7,7 @@ import VisaGraphic from '../../components/VisaCard/VisaGraphic';
 import AnimatedApplePayGraphic from '../../components/AnimatedApplyPayGraphic/AnimatedApplePayGraphic';
 import RadarDashboardGraphic from '../../components/RadarDashboardGraphic/RadarDashboardGraphic';
 import PayInvoiceWrapper from '../../components/PayInvoiceWrapper/PayInvoiceWrapper';
+import TerminalGraphicWrapper from '../../components/TerminalGraphicWrapper/TerminalGraphicWrapper';
 const UnifiedPlatFormContainer = styled(Box, { name: 'unified-platform-section' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
@@ -220,7 +221,8 @@ const UnifiedPlatForm = () => {
 							<VisaGraphic gridArea='Visa' />
 							{/* <AnimatedApplePayGraphic gridArea='Invoice-from-slack' /> */}
 							{/* <RadarDashboardGraphic gridArea='DashBoard' /> */}
-							<PayInvoiceWrapper gridArea='Invoice-from-slack' />
+							{/* <PayInvoiceWrapper gridArea='Invoice-from-slack' /> */}
+							<TerminalGraphicWrapper gridArea='Invoice-from-slack' />
 						</UnifiedPlatformGraphicGrid>
 					</UnifiedPlatformGraphic>
 				</LayOut>
