@@ -6,6 +6,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import VisaGraphic from '../../components/VisaCard/VisaGraphic';
 import AnimatedApplePayGraphic from '../../components/AnimatedApplyPayGraphic/AnimatedApplePayGraphic';
 import RadarDashboardGraphic from '../../components/RadarDashboardGraphic/RadarDashboardGraphic';
+import PayInvoiceWrapper from '../../components/PayInvoiceWrapper/PayInvoiceWrapper';
 const UnifiedPlatFormContainer = styled(Box, { name: 'unified-platform-section' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
@@ -218,7 +219,8 @@ const UnifiedPlatForm = () => {
 						<UnifiedPlatformGraphicGrid>
 							<VisaGraphic gridArea='Visa' />
 							{/* <AnimatedApplePayGraphic gridArea='Invoice-from-slack' /> */}
-							<RadarDashboardGraphic gridArea='DashBoard' />
+							{/* <RadarDashboardGraphic gridArea='DashBoard' /> */}
+							<PayInvoiceWrapper gridArea='Invoice-from-slack' />
 						</UnifiedPlatformGraphicGrid>
 					</UnifiedPlatformGraphic>
 				</LayOut>
