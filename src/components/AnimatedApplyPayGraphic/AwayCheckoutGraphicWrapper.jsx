@@ -109,7 +109,8 @@ const product__info = [
 		url: 'https://images.ctfassets.net/fzn2n1nzq965/6zqC8j59LeG9UDrj78Bkl6/7306270fb26d4d40c278b4717c4d2de8/the-luggage-tag.jpg?w=120&fm=webp'
 	}
 ];
-const AwayCheckoutGraphicWrapper = () => {
+const AwayCheckoutGraphicWrapper = (props) => {
+	const { index } = props;
 	return (
 		<AwayCheckoutCheckoutGraphic>
 			<AwayLogo />

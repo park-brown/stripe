@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Fade } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import WarbyParkerCheckoutGraphicLogo from '../../SvgIcon/WarbyParkerCheckoutGraphicLogo/WarbyParkerCheckoutGraphicLogo';
 import { ApplyPayButton } from '../PhoneOnCheckOut/PhoneOnCheckOut';
@@ -25,27 +25,7 @@ const WarbyParkerCheckoutGraphicGlassesContainer = styled(Box, {
 	height: '35px',
 	position: 'relative'
 }));
-const Glass__URL = [
-	{
-		color: 'black',
-		src: 'https://images.ctfassets.net/fzn2n1nzq965/3zgjfwM6UX1gBXZcVmcytH/8c1567a5635eabcb6e75af8d67a7a518/glasses-slate.svg'
-	},
-	{
-		color: 'blue',
-		ursrc:
-			'https://images.ctfassets.net/fzn2n1nzq965/5646svpQ0dbCfY3hlna47g/455a42de63cfbfe7ae651aa2cebbe350/glasses-purple.svg'
-	},
-	{
-		color: 'cyan',
-		ursrc:
-			'https://images.ctfassets.net/fzn2n1nzq965/5JrlC5NNqOr0ooKsjO8g5H/9cc082586a61bd78ad781c5bda767df3/glasses-cyan.svg?h=250'
-	},
-	{
-		color: 'yellow',
-		ursrc:
-			'https://images.ctfassets.net/fzn2n1nzq965/7fMJmyFoEpnN7thfmCbqa1/ef9cab4b938c7b485eea1509052f0965/glasses-yellow.svg'
-	}
-];
+
 const Glass = styled('figure', { name: 'WarbyParker-Checkout-Graphic-glass' })(({ theme, src }) => ({
 	position: 'absolute',
 	left: 0,
@@ -77,14 +57,19 @@ const GlassColorRadio = styled(Box, { name: 'WarbyParker-Checkout-Graphic-color-
 	backgroundColor: bgColor
 }));
 const ActiveColorIndicator = styled(Box, { name: 'WarbyParker-Checkout-Graphic-color-radio-indicator' })(
-	({ theme }) => ({
+	({ theme, glassIndex }) => ({
 		position: 'absolute',
 		width: '16px',
 		height: '16px',
 		left: '-3px',
 		top: '-3px',
 		border: '1px solid #62788d',
-		borderRadius: '8px'
+		borderRadius: '8px',
+		transform: `translateX(${glassIndex * 19}px)`,
+		transition: `${theme.transitions.create(['transform'], {
+			duration: '500ms',
+			easing: theme.transitions.easing.easeInOut
+		})}`
 	})
 );
 const WarbyParkerCheckoutGraphicSection = styled(Box, {
@@ -138,16 +123,93 @@ const RecommendProductPicture = styled(Box, { name: 'WarbyParker-CheckoutGraphic
 		gridArea: gridArea
 	})
 );
+const Glass__URL = [
+	{
+		color: 'black',
+		src: 'https://images.ctfassets.net/fzn2n1nzq965/3zgjfwM6UX1gBXZcVmcytH/8c1567a5635eabcb6e75af8d67a7a518/glasses-slate.svg'
+	},
+	{
+		color: 'blue',
+		src: 'https://images.ctfassets.net/fzn2n1nzq965/5646svpQ0dbCfY3hlna47g/455a42de63cfbfe7ae651aa2cebbe350/glasses-purple.svg'
+	},
+	{
+		color: 'cyan',
+		src: 'https://images.ctfassets.net/fzn2n1nzq965/5JrlC5NNqOr0ooKsjO8g5H/9cc082586a61bd78ad781c5bda767df3/glasses-cyan.svg?h=250'
+	},
+	{
+		color: 'yellow',
+		src: 'https://images.ctfassets.net/fzn2n1nzq965/7fMJmyFoEpnN7thfmCbqa1/ef9cab4b938c7b485eea1509052f0965/glasses-yellow.svg'
+	}
+];
 
-const WarbyParkerCheckoutGraphicWrapper = () => {
+const WarbyParkerCheckoutGraphicWrapper = (props) => {
+	const { index } = props;
+
+	const [glassIndex, setGlassIndex] = useState(0);
+	const [pressButton, triggerPressButton] = useState(false);
+	const [showApplePaySheetOverLay, triggerApplePaySheetOverLay] = useState(false);
+	const [showApplePaySheet, triggerApplePaySheet] = useState(false);
+	// when index = 1;
+
+	//1.first switch between four glasses
+	const switchInterval = 1500;
+	useEffect(() => {
+		if (index === 0) {
+			switch (glassIndex) {
+				case 0:
+					setTimeout(() => {
+						setGlassIndex(1);
+					}, switchInterval);
+					break;
+				case 1:
+					setTimeout(() => {
+						setGlassIndex(2);
+					}, switchInterval);
+					break;
+				case 2:
+					setTimeout(() => {
+						setGlassIndex(3);
+					}, switchInterval);
+					break;
+				case 3:
+					setTimeout(() => {
+						//2. when glassIndex equals to 3, stop glass animation,activate press button
+						setGlassIndex(3);
+						//3. activate pay button animation
+						triggerPressButton(true);
+						//4.dispaly apple pay sheet overlay
+						setTimeout(() => {
+							triggerApplePaySheetOverLay(true);
+						}, 500);
+						//5.display apple apy sheet
+						setTimeout(() => {
+							triggerApplePaySheet(true);
+						}, 1000);
+						//6.apple face ID animation
+					}, switchInterval);
+					break;
+				default:
+					setGlassIndex(0);
+			}
+		}
+	}, [glassIndex, index]);
+
 	return (
 		<WarbyParkerCheckoutGraphic>
 			<WarbyParkerCheckoutGraphicLogo />
 			<WarbyParkerCheckoutGraphicGlassesContainer>
-				<Glass src={Glass__URL[0].src} />
-				{/* <Glass src={Glass__URL[1].src} />
-      <Glass src={Glass__URL[2].src} />
-      <Glass src={Glass__URL[3].src} /> */}
+				<Fade in={glassIndex === 0} timeout={{ appear: 500, enter: 500, exit: 500 }}>
+					<Glass src={Glass__URL[0].src} />
+				</Fade>
+				<Fade in={glassIndex === 1} timeout={{ appear: 500, enter: 500, exit: 500 }}>
+					<Glass src={Glass__URL[1].src} />
+				</Fade>
+				<Fade in={glassIndex === 2} timeout={{ appear: 500, enter: 500, exit: 500 }}>
+					<Glass src={Glass__URL[2].src} />
+				</Fade>
+				<Fade in={glassIndex === 3} timeout={{ appear: 500, enter: 500, exit: 500 }}>
+					<Glass src={Glass__URL[3].src} />
+				</Fade>
 			</WarbyParkerCheckoutGraphicGlassesContainer>
 			<Typography variant='WarbyParkerCheckoutGraphic__title' sx={{ margin: '12px 0 1px 0' }}>
 				Wilkie
@@ -158,10 +220,10 @@ const WarbyParkerCheckoutGraphicWrapper = () => {
 				<GlassColorRadio bgColor='#635bff' />
 				<GlassColorRadio bgColor='#0cf' />
 				<GlassColorRadio bgColor='#ffc025' />
-				<ActiveColorIndicator />
+				<ActiveColorIndicator glassIndex={glassIndex} />
 			</WarbyParkerGlassesColorContainer>
-			<ApplyPayButton sx={{ margin: '0 0 30px 0' }}>
-				<ApplePayIcon />
+			<ApplyPayButton sx={{ margin: '0 0 30px 0' }} checked={pressButton}>
+				<ApplePayIcon viewBox='0 0 34 14' />
 			</ApplyPayButton>
 			<WarbyParkerCheckoutGraphicSection>
 				<Box
@@ -250,7 +312,14 @@ const WarbyParkerCheckoutGraphicWrapper = () => {
 					</Box>
 				</WarbyParkerCheckoutGraphicSectionRecommendProduct>
 			</WarbyParkerCheckoutGraphicSection>
-			<ApplePaySheetForWarbyParker />
+			<Fade in={showApplePaySheetOverLay}>
+				<Box>
+					<ApplePaySheetForWarbyParker
+						showApplePaySheetOverLay={showApplePaySheetOverLay}
+						showApplePaySheet={showApplePaySheet}
+					/>
+				</Box>
+			</Fade>
 		</WarbyParkerCheckoutGraphic>
 	);
 };

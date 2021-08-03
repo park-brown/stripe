@@ -78,7 +78,8 @@ const product__info = [
 		url: './item-2.jpg'
 	}
 ];
-const GlossierCheckoutGraphicWrapper = () => {
+const GlossierCheckoutGraphicWrapper = (props) => {
+	const { index } = props;
 	return (
 		<GlossierCheckoutCheckoutGraphic>
 			<GlossierLogo />

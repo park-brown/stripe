@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, Fade, Slide } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import ApplePayIcon from '../../SvgIcon/ApplePay/ApplePayIcon';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -15,7 +15,7 @@ const ApplePaySheetWrapper = styled(Box, { name: 'apple-pay-sheet-wrapper' })(({
 	left: 0,
 	right: 0
 }));
-const ApplePaySheetOverLay = styled(Box, { name: 'apple-pay-sheet-wrapper-overlay' })(({ theme }) => ({
+const ApplePaySheetOverLay = styled(Box, { name: 'apple-pay-sheet-wrapper-overlay' })(({ theme, open }) => ({
 	position: 'absolute',
 	top: 0,
 	bottom: 0,
@@ -107,155 +107,161 @@ const ApplePayFaceID = styled(Box, { name: 'apple-pay-face-id' })(({ theme }) =>
 	margin: '12px auto',
 	height: '40px'
 }));
-const ApplePaySheetForWarbyParker = () => {
+const ApplePaySheetForWarbyParker = (props) => {
+	const { showApplePaySheetOverLay, showApplePaySheet } = props;
+
 	return (
 		<ApplePaySheetWrapper>
-			<ApplePaySheetOverLay />
-			<ApplePaySheet>
-				<ApplePaySheetHeader>
-					<Box gridArea='apple-pay-icon'>
-						<ApplePayIcon
-							viewBox='0 0 39 16'
-							sx={{
-								width: '39px',
-								height: '16px',
-								margin: 0,
-								'& path': {
-									fill: '#000',
+			<Fade in={showApplePaySheetOverLay} style={{ opacity: 0.2 }}>
+				<ApplePaySheetOverLay />
+			</Fade>
+			<Slide direction='up' in={showApplePaySheet}>
+				<ApplePaySheet>
+					<ApplePaySheetHeader>
+						<Box gridArea='apple-pay-icon'>
+							<ApplePayIcon
+								viewBox='0 0 39 16'
+								sx={{
 									width: '39px',
-									height: '16px'
-								}
-							}}
-						/>
-					</Box>
+									height: '16px',
+									margin: 0,
+									'& path': {
+										fill: '#000',
+										width: '39px',
+										height: '16px'
+									}
+								}}
+							/>
+						</Box>
 
-					<Typography gridArea='cancel' variant='apple__pay__sheet__cancel'>
-						cancel
-					</Typography>
-				</ApplePaySheetHeader>
-				<ApplePaySheetCardInfo>
-					<Box
-						gridArea='visa'
-						sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-start', alignSelf: 'stretch' }}>
-						<VisaIcon sx={{ width: '22px', height: '15px' }} />
-					</Box>
-					<Box gridArea='visa-info' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>OCBC Bank (....8888)</Typography>
-						<Typography variant='apple__pay__sheet__checkOut__info'>173 Bencoolen Street</Typography>
-					</Box>
-					<Box gridArea='arrow-right'>
-						<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
-					</Box>
-				</ApplePaySheetCardInfo>
-				<ApplePaySheetShipping>
-					<Box
-						gridArea='shipping'
-						sx={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'flex-start',
-							alignSelf: 'stretch',
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							textTransform: 'uppercase'
-						}}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>shippi...</Typography>
-					</Box>
-					<Box
-						gridArea='address'
-						sx={{
-							display: 'flex',
-							flexDirection: 'column',
-							alignItems: 'flex-start'
-						}}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>Wei Qing</Typography>
-						<Typography variant='apple__pay__sheet__checkOut__info'>173 Bencoolen Street, Singapore</Typography>
-						<Typography variant='apple__pay__sheet__checkOut__info'>189642</Typography>
-					</Box>
-					<Box gridArea='arrow-right'>
-						<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
-					</Box>
-				</ApplePaySheetShipping>
-				<ApplePayMethod>
-					<Box
-						gridArea='method'
-						sx={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'flex-start',
-							alignSelf: 'stretch',
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							textTransform: 'uppercase'
-						}}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>method</Typography>
-					</Box>
-					<Box
-						gridArea='method-info'
-						sx={{
-							display: 'flex',
-							flexDirection: 'column',
-							alignItems: 'flex-start'
-						}}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>3–Day</Typography>
-						<Typography variant='apple__pay__sheet__checkOut__info'>3-4 Business Days</Typography>
-					</Box>
-					<Box gridArea='arrow-right'>
-						<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
-					</Box>
-				</ApplePayMethod>
-				<ApplePayContact>
-					<Box
-						gridArea='contact'
-						sx={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'flex-start',
-							alignSelf: 'stretch',
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							textTransform: 'uppercase'
-						}}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>conta...</Typography>
-					</Box>
-					<Box
-						gridArea='email'
-						sx={{
-							display: 'flex',
-							flexDirection: 'column',
-							alignItems: 'flex-start'
-						}}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>wei.qing@example.com</Typography>
-						<Typography variant='apple__pay__sheet__checkOut__info'>+65 6222 3322</Typography>
-					</Box>
-					<Box gridArea='arrow-right'>
-						<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
-					</Box>
-				</ApplePayContact>
-				<ApplePayTotal>
-					<Box
-						gridArea='text'
-						sx={{
-							display: 'flex',
-							justifyContent: 'flex-start',
-							alignItems: 'flex-start',
-							alignSelf: 'stretch',
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							textTransform: 'uppercase'
-						}}>
-						<Typography variant='apple__pay__sheet__checkOut__info'>pay total</Typography>
-					</Box>
-					<Box gridArea='pay-total'>
-						<Typography variant='apple__pay__sheet__checkOut__info'>$250.00</Typography>
-					</Box>
-				</ApplePayTotal>
-				<ApplePayFaceID>
-					<FaceBorders />
-					<FaceFeatures />
-					{/* <FaceCheck/> */}
-				</ApplePayFaceID>
-			</ApplePaySheet>
+						<Typography gridArea='cancel' variant='apple__pay__sheet__cancel'>
+							cancel
+						</Typography>
+					</ApplePaySheetHeader>
+					<ApplePaySheetCardInfo>
+						<Box
+							gridArea='visa'
+							sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-start', alignSelf: 'stretch' }}>
+							<VisaIcon sx={{ width: '22px', height: '15px' }} />
+						</Box>
+						<Box gridArea='visa-info' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>OCBC Bank (....8888)</Typography>
+							<Typography variant='apple__pay__sheet__checkOut__info'>173 Bencoolen Street</Typography>
+						</Box>
+						<Box gridArea='arrow-right'>
+							<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
+						</Box>
+					</ApplePaySheetCardInfo>
+					<ApplePaySheetShipping>
+						<Box
+							gridArea='shipping'
+							sx={{
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'flex-start',
+								alignSelf: 'stretch',
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								textTransform: 'uppercase'
+							}}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>shippi...</Typography>
+						</Box>
+						<Box
+							gridArea='address'
+							sx={{
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'flex-start'
+							}}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>Wei Qing</Typography>
+							<Typography variant='apple__pay__sheet__checkOut__info'>173 Bencoolen Street, Singapore</Typography>
+							<Typography variant='apple__pay__sheet__checkOut__info'>189642</Typography>
+						</Box>
+						<Box gridArea='arrow-right'>
+							<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
+						</Box>
+					</ApplePaySheetShipping>
+					<ApplePayMethod>
+						<Box
+							gridArea='method'
+							sx={{
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'flex-start',
+								alignSelf: 'stretch',
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								textTransform: 'uppercase'
+							}}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>method</Typography>
+						</Box>
+						<Box
+							gridArea='method-info'
+							sx={{
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'flex-start'
+							}}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>3–Day</Typography>
+							<Typography variant='apple__pay__sheet__checkOut__info'>3-4 Business Days</Typography>
+						</Box>
+						<Box gridArea='arrow-right'>
+							<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
+						</Box>
+					</ApplePayMethod>
+					<ApplePayContact>
+						<Box
+							gridArea='contact'
+							sx={{
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'flex-start',
+								alignSelf: 'stretch',
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								textTransform: 'uppercase'
+							}}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>conta...</Typography>
+						</Box>
+						<Box
+							gridArea='email'
+							sx={{
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'flex-start'
+							}}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>wei.qing@example.com</Typography>
+							<Typography variant='apple__pay__sheet__checkOut__info'>+65 6222 3322</Typography>
+						</Box>
+						<Box gridArea='arrow-right'>
+							<ArrowForwardIosIcon sx={{ width: '10px', height: '10px', fill: '#2a69fe' }} />
+						</Box>
+					</ApplePayContact>
+					<ApplePayTotal>
+						<Box
+							gridArea='text'
+							sx={{
+								display: 'flex',
+								justifyContent: 'flex-start',
+								alignItems: 'flex-start',
+								alignSelf: 'stretch',
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								textTransform: 'uppercase'
+							}}>
+							<Typography variant='apple__pay__sheet__checkOut__info'>pay total</Typography>
+						</Box>
+						<Box gridArea='pay-total'>
+							<Typography variant='apple__pay__sheet__checkOut__info'>$250.00</Typography>
+						</Box>
+					</ApplePayTotal>
+					<ApplePayFaceID>
+						<FaceBorders />
+						<FaceFeatures />
+						{/* <FaceCheck/> */}
+					</ApplePayFaceID>
+				</ApplePaySheet>
+			</Slide>
 		</ApplePaySheetWrapper>
 	);
 };

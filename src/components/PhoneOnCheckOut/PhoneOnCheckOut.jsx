@@ -51,7 +51,7 @@ const IphoneCheckOutImage = styled('div', { name: 'check-out-image' })(({ theme 
 	justifyContent: 'center',
 	position: 'relative'
 }));
-export const ApplyPayButton = styled(IconButton, { name: 'CheckoutPhoneGraphic__applePay' })(({ theme }) => ({
+export const ApplyPayButton = styled(IconButton, { name: 'CheckoutPhoneGraphic__applePay' })(({ theme, checked }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		...theme.typography.CheckoutPhoneGraphic__description,
 		width: '100%',
@@ -63,7 +63,22 @@ export const ApplyPayButton = styled(IconButton, { name: 'CheckoutPhoneGraphic__
 		'&:hover': {
 			opacity: 0.6,
 			backgroundColor: '#0a2540'
-		}
+		},
+		...(checked === true && {
+			animation: `press ${theme.transitions.duration.standard}ms ${theme.transitions.easing.easeInOut} `,
+			'@keyframes press': {
+				'0%': {
+					transform: 'scale(1)'
+				},
+				'50%': {
+					transform: 'scale(0.95)',
+					boxShadow: `${theme.shadows[2]}`
+				},
+				'100%': {
+					transform: 'scale(1)'
+				}
+			}
+		})
 	}
 }));
 const Separator = styled(Divider, { name: 'separator' })(({ theme }) => ({

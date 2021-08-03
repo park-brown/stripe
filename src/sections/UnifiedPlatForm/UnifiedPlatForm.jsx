@@ -219,8 +219,7 @@ const UnifiedPlatForm = () => {
 					<UnifiedPlatformGraphic>
 						<UnifiedPlatformGraphicGrid>
 							<VisaGraphic gridArea='Visa' />
-							{/* <AnimatedApplePayGraphic gridArea='Invoice-from-slack' /> */}
-
+							<AnimatedApplePayGraphic gridArea='CheckOut' />
 							<PayInvoiceWrapper gridArea='Invoice-from-slack' />
 							<TerminalGraphicWrapper gridArea='Terminal' />
 							<RadarDashboardGraphic gridArea='DashBoard' />
