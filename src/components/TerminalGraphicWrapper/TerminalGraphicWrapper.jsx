@@ -1,16 +1,26 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { styled } from '@material-ui/system';
 import ScreenArrow from '../../SvgIcon/ScreenArrow/ScreenArrow';
 import TerminalGraphicInsertCardScreenLogos from '../../SvgIcon/TerminalGraphicInsertCardScreenLogos/TerminalGraphicInsertCardScreenLogos';
 const TerminalGraphicContainer = styled(Box, { name: 'Terminal-graphic-container' })(({ theme, gridArea }) => ({
-	gridArea: gridArea,
-	width: '301px',
-	height: '564px',
-	overflow: 'hidden',
-	borderRadius: '40px',
-	background: '#30455d',
-	boxShadow: '0 20px 30px -10px #26394d'
+	[theme.breakpoints.up('mobile')]: {
+		gridArea: gridArea,
+		width: '301px',
+		height: '564px',
+		overflow: 'hidden',
+		borderRadius: '40px',
+		background: '#30455d',
+		boxShadow: '0 20px 30px -10px #26394d',
+		transform: 'scale(0.372093)',
+		transformOrigin: 'top left'
+	},
+	[theme.breakpoints.up('tablet')]: {
+		transform: 'scale(0.667774)'
+	},
+	[theme.breakpoints.up('laptop')]: {
+		transform: 'scale(0.850498)'
+	}
 }));
 const TerminalGraphicEdge = styled(Box, { name: 'TerminalGraphic__edge' })(({ theme }) => ({
 	height: '552px',

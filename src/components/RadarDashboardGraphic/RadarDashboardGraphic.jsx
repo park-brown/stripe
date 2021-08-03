@@ -28,19 +28,28 @@ import ProductChart from '../../SvgIcon/ProductChart/ProductChart';
 import RulePerformanceChart from '../../SvgIcon/RulePerformanceChart/RulePerformanceChart';
 
 const RadarDashboardGraphicContainer = styled(Box, { name: 'RadarDashboardGraphic' })(({ theme, gridArea }) => ({
-	display: 'grid',
-	gridTemplateRows: 'auto',
-	gridTemplateColumns: '152px auto',
-	gridTemplateAreas: `"sidebar  content"`,
-	gridArea: gridArea,
-	gap: theme.spacing(6),
-	width: '929px',
-	padding: theme.spacing(6),
-	borderRadius: '8px',
-	backgroundImage: 'linear-gradient(#f5f8fb,#f1f6fa 15%)',
-	boxShadow: ' 0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%)'
-
-	// grid: auto/152px 1fr,
+	[theme.breakpoints.up('mobile')]: {
+		display: 'grid',
+		gridTemplateRows: 'auto',
+		gridTemplateColumns: '152px auto',
+		gridTemplateAreas: `"sidebar  content"`,
+		gridArea: gridArea,
+		gap: theme.spacing(6),
+		width: '929px',
+		padding: theme.spacing(6),
+		borderRadius: '8px',
+		backgroundImage: 'linear-gradient(#f5f8fb,#f1f6fa 15%)',
+		boxShadow: ' 0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%)',
+		transform: 'scale(0.369214)',
+		transformOrigin: 'top left',
+		position: 'absolute'
+	},
+	[theme.breakpoints.up('tablet')]: {
+		transform: 'scale(0.665231)'
+	},
+	[theme.breakpoints.up('laptop')]: {
+		transform: 'scale(0.85253)'
+	}
 }));
 const SideBar = styled(Box, { name: 'RadarDashboardGraphic__sidebar' })(({ theme }) => ({
 	gridArea: 'sidebar',

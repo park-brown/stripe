@@ -220,9 +220,10 @@ const UnifiedPlatForm = () => {
 						<UnifiedPlatformGraphicGrid>
 							<VisaGraphic gridArea='Visa' />
 							{/* <AnimatedApplePayGraphic gridArea='Invoice-from-slack' /> */}
-							{/* <RadarDashboardGraphic gridArea='DashBoard' /> */}
-							{/* <PayInvoiceWrapper gridArea='Invoice-from-slack' /> */}
-							<TerminalGraphicWrapper gridArea='Invoice-from-slack' />
+
+							<PayInvoiceWrapper gridArea='Invoice-from-slack' />
+							<TerminalGraphicWrapper gridArea='Terminal' />
+							<RadarDashboardGraphic gridArea='DashBoard' />
 						</UnifiedPlatformGraphicGrid>
 					</UnifiedPlatformGraphic>
 				</LayOut>
