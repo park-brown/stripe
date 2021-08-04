@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Typography, Button } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Button, Fade, Grow } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import AwayLogo from '../../SvgIcon/AwayLogo/AwayLogo';
 import { ApplyPayButton } from '../PhoneOnCheckOut/PhoneOnCheckOut';
@@ -111,6 +111,33 @@ const product__info = [
 ];
 const AwayCheckoutGraphicWrapper = (props) => {
 	const { index } = props;
+	const [openCartItems, triggerOpenCartItems] = useState(false);
+	const [pressButton, triggerPressButton] = useState(false);
+	const [openApplePaySheetOverylay, triggeropenApplePaySheetOverylay] = useState(false);
+	const [openApplePaySheet, triggerOpenApplePaySheet] = useState(false);
+	const [showFaceId, triggerFaceId] = useState(false);
+
+	useEffect(() => {
+		if (index === 1) {
+			// 1.when index equals to 1, hide applePaysheet, use grow to display cartItems
+			setTimeout(() => triggerOpenCartItems(true), 1000);
+			// 2. press button animation
+			setTimeout(() => {
+				triggerPressButton(true);
+				//3. display paySheet overlay
+				setTimeout(() => {
+					triggeropenApplePaySheetOverylay(true);
+					//4. display pay sheet
+					setTimeout(() => {
+						triggerOpenApplePaySheet(true);
+						//5. faceId animation
+						triggerFaceId(true);
+					}, 300);
+				}, 300);
+			}, 2000);
+		}
+	}, [index]);
+
 	return (
 		<AwayCheckoutCheckoutGraphic>
 			<AwayLogo />
@@ -121,32 +148,36 @@ const AwayCheckoutGraphicWrapper = (props) => {
 			<Box
 				className='AwayCheckoutGraphic__products'
 				sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', width: '100%' }}>
-				<AwayCheckoutGraphicProduct>
-					<ProductImage src={product__info[0].url} />
-					<ProductDetail>
-						<Typography variant='AwayCheckoutGraphic__productName'>The Bigger Carry-On</Typography>
-						<Typography variant='AwayCheckoutGraphic__productColor' sx={{ margin: '0 0 8px 0' }}>
-							Color: Navy
-						</Typography>
-						<AwayCheckoutGraphicStepperContainer>
-							<AwayCheckoutGraphicStepper>1</AwayCheckoutGraphicStepper>
-							<Typography variant='AwayCheckoutGraphic__productTotal'>$245.00</Typography>
-						</AwayCheckoutGraphicStepperContainer>
-					</ProductDetail>
-				</AwayCheckoutGraphicProduct>
-				<AwayCheckoutGraphicProduct>
-					<ProductImage src={product__info[1].url} />
-					<ProductDetail>
-						<Typography variant='AwayCheckoutGraphic__productName'>The Luggage Tag</Typography>
-						<Typography variant='AwayCheckoutGraphic__productColor' sx={{ margin: '0 0 8px 0' }}>
-							Color: Sand
-						</Typography>
-						<AwayCheckoutGraphicStepperContainer>
-							<AwayCheckoutGraphicStepper>1</AwayCheckoutGraphicStepper>
-							<Typography variant='AwayCheckoutGraphic__productTotal'>$25.00</Typography>
-						</AwayCheckoutGraphicStepperContainer>
-					</ProductDetail>
-				</AwayCheckoutGraphicProduct>
+				<Grow in={openCartItems}>
+					<AwayCheckoutGraphicProduct>
+						<ProductImage src={product__info[0].url} />
+						<ProductDetail>
+							<Typography variant='AwayCheckoutGraphic__productName'>The Bigger Carry-On</Typography>
+							<Typography variant='AwayCheckoutGraphic__productColor' sx={{ margin: '0 0 8px 0' }}>
+								Color: Navy
+							</Typography>
+							<AwayCheckoutGraphicStepperContainer>
+								<AwayCheckoutGraphicStepper>1</AwayCheckoutGraphicStepper>
+								<Typography variant='AwayCheckoutGraphic__productTotal'>$245.00</Typography>
+							</AwayCheckoutGraphicStepperContainer>
+						</ProductDetail>
+					</AwayCheckoutGraphicProduct>
+				</Grow>
+				<Grow in={openCartItems} {...(openCartItems ? { timeout: 1000 } : {})}>
+					<AwayCheckoutGraphicProduct>
+						<ProductImage src={product__info[1].url} />
+						<ProductDetail>
+							<Typography variant='AwayCheckoutGraphic__productName'>The Luggage Tag</Typography>
+							<Typography variant='AwayCheckoutGraphic__productColor' sx={{ margin: '0 0 8px 0' }}>
+								Color: Sand
+							</Typography>
+							<AwayCheckoutGraphicStepperContainer>
+								<AwayCheckoutGraphicStepper>1</AwayCheckoutGraphicStepper>
+								<Typography variant='AwayCheckoutGraphic__productTotal'>$25.00</Typography>
+							</AwayCheckoutGraphicStepperContainer>
+						</ProductDetail>
+					</AwayCheckoutGraphicProduct>
+				</Grow>
 			</Box>
 			<AwayCheckoutGraphicFooter>
 				<Box
@@ -155,12 +186,20 @@ const AwayCheckoutGraphicWrapper = (props) => {
 					<Typography variant='AwayCheckoutGraphic__productTotal'>Total</Typography>
 					<Typography variant='AwayCheckoutGraphic__productName'>$270.00</Typography>
 				</Box>
-				<ApplyPayButton>
+				<ApplyPayButton checked={pressButton}>
 					<ApplePayIcon viewBox='0 0 34 14' />
 				</ApplyPayButton>
 				<CheckOutButton>Checkout</CheckOutButton>
 			</AwayCheckoutGraphicFooter>
-			<ApplePaySheetForAway />
+			<Fade in={openApplePaySheetOverylay}>
+				<Box>
+					<ApplePaySheetForAway
+						openApplePaySheetOverylay={openApplePaySheetOverylay}
+						openApplePaySheet={openApplePaySheet}
+						showFaceId={showFaceId}
+					/>
+				</Box>
+			</Fade>
 		</AwayCheckoutCheckoutGraphic>
 	);
 };

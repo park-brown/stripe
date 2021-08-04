@@ -37,7 +37,7 @@ const Screen = styled(Box, { name: 'animated-apple-pay-graphic-screen' })(({ the
 
 const AnimatedApplePayGraphic = ({ gridArea }) => {
 	const interval = 20000;
-	const [index, setIndex] = useState(0);
+	const [index, setIndex] = useState(1);
 
 	//shuffle effect
 	// useEffect(() => {
