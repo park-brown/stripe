@@ -106,14 +106,25 @@ const ApplePayFaceID = styled(Box, { name: 'apple-pay-face-id' })(({ theme }) =>
 	margin: '12px auto',
 	height: '40px'
 }));
-export const FaceCheck = styled(CheckCircleOutlineOutlinedIcon, { name: 'face-checked' })(({ theme }) => ({
+export const FaceCheck = styled(CheckCircleOutlineOutlinedIcon, { name: 'face-checked' })(({ theme, checked }) => ({
 	position: 'absolute',
-	width: '24px',
-	height: '24px',
-	top: '50%',
-	left: '50%',
-	transform: 'translate(-50%,-50%)',
-	color: '#0278fc'
+	width: '34px',
+	height: '34px',
+	top: '10%',
+	left: '44%',
+	color: '#0278fc',
+	...(checked && {
+		animation: `rotate ${theme.transitions.duration.shortest}ms ${theme.transitions.easing.easeInOut} 4 `,
+
+		'@keyframes rotate': {
+			from: {
+				transform: 'rotateZ(0deg)  rotateY(0deg) '
+			},
+			to: {
+				transform: 'rotateZ(90deg)  rotateY(300deg) '
+			}
+		}
+	})
 }));
 const ApplePaySheetForAway = () => {
 	return (

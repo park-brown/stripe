@@ -144,11 +144,11 @@ const Glass__URL = [
 
 const WarbyParkerCheckoutGraphicWrapper = (props) => {
 	const { index } = props;
-
 	const [glassIndex, setGlassIndex] = useState(0);
 	const [pressButton, triggerPressButton] = useState(false);
 	const [showApplePaySheetOverLay, triggerApplePaySheetOverLay] = useState(false);
 	const [showApplePaySheet, triggerApplePaySheet] = useState(false);
+	const [showFaceId, triggerFaceId] = useState(false);
 	// when index = 1;
 
 	//1.first switch between four glasses
@@ -186,6 +186,9 @@ const WarbyParkerCheckoutGraphicWrapper = (props) => {
 							triggerApplePaySheet(true);
 						}, 1000);
 						//6.apple face ID animation
+						setTimeout(() => {
+							triggerFaceId(true);
+						}, 1600);
 					}, switchInterval);
 					break;
 				default:
@@ -317,6 +320,7 @@ const WarbyParkerCheckoutGraphicWrapper = (props) => {
 					<ApplePaySheetForWarbyParker
 						showApplePaySheetOverLay={showApplePaySheetOverLay}
 						showApplePaySheet={showApplePaySheet}
+						showFaceId={showFaceId}
 					/>
 				</Box>
 			</Fade>

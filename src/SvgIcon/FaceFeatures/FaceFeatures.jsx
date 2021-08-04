@@ -26,9 +26,9 @@ FaceFeatures = styled(FaceFeatures, { name: 'face-features' })(({ theme }) => ({
 		position: 'absolute',
 		top: '50%',
 		left: '50%',
-		transform: 'translate(-50%,-50%)',
+		transform: 'translate(-50%,-56%)',
 		'& path': {
-			stroke: '#999',
+			stroke: '#0278fc',
 			strokeWidth: '4px',
 			fill: 'none',
 			strokeLinecap: 'round'

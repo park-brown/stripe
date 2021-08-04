@@ -48,7 +48,7 @@ FaceBorders = styled(FaceBorders, { name: 'face-borders' })(({ theme }) => ({
 		height: '33.75px',
 		position: 'relative',
 		'& path': {
-			stroke: '#999',
+			stroke: '#0278fc',
 			strokeWidth: '4px',
 			fill: 'none',
 			strokeLinecap: 'round'

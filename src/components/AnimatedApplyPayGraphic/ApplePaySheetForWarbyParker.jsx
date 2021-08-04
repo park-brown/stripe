@@ -4,10 +4,7 @@ import { styled } from '@material-ui/core/styles';
 import ApplePayIcon from '../../SvgIcon/ApplePay/ApplePayIcon';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import VisaIcon from '../../SvgIcon/Visa/VisaIcon';
-import FaceFeatures from '../../SvgIcon/FaceFeatures/FaceFeatures';
-import FaceBorders from '../../SvgIcon/FaceBorders.jsx/FaceBorders';
-import { FaceCheck } from './ApplePaySheetForAway';
-
+import FaceIdAnimation from './FaceIdAnimation';
 const ApplePaySheetWrapper = styled(Box, { name: 'apple-pay-sheet-wrapper' })(({ theme }) => ({
 	position: 'absolute',
 	top: 0,
@@ -107,8 +104,9 @@ const ApplePayFaceID = styled(Box, { name: 'apple-pay-face-id' })(({ theme }) =>
 	margin: '12px auto',
 	height: '40px'
 }));
+
 const ApplePaySheetForWarbyParker = (props) => {
-	const { showApplePaySheetOverLay, showApplePaySheet } = props;
+	const { showApplePaySheetOverLay, showApplePaySheet, showFaceId } = props;
 
 	return (
 		<ApplePaySheetWrapper>
@@ -256,9 +254,7 @@ const ApplePaySheetForWarbyParker = (props) => {
 						</Box>
 					</ApplePayTotal>
 					<ApplePayFaceID>
-						<FaceBorders />
-						<FaceFeatures />
-						{/* <FaceCheck/> */}
+						<FaceIdAnimation autoplay={showFaceId} loop={1} />
 					</ApplePayFaceID>
 				</ApplePaySheet>
 			</Slide>
