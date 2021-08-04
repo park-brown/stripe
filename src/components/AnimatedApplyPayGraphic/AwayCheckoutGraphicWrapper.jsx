@@ -116,7 +116,13 @@ const AwayCheckoutGraphicWrapper = (props) => {
 	const [openApplePaySheetOverylay, triggeropenApplePaySheetOverylay] = useState(false);
 	const [openApplePaySheet, triggerOpenApplePaySheet] = useState(false);
 	const [showFaceId, triggerFaceId] = useState(false);
-
+	const reStart = () => {
+		triggerOpenCartItems(false);
+		triggerPressButton(false);
+		triggeropenApplePaySheetOverylay(false);
+		triggerOpenApplePaySheet(false);
+		triggerFaceId(false);
+	};
 	useEffect(() => {
 		if (index === 1) {
 			// 1.when index equals to 1, hide applePaysheet, use grow to display cartItems
@@ -136,6 +142,9 @@ const AwayCheckoutGraphicWrapper = (props) => {
 				}, 300);
 			}, 2000);
 		}
+		return () => {
+			reStart();
+		};
 	}, [index]);
 
 	return (

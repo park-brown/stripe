@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Fade, Grow } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import GlossierLogo from '../../SvgIcon/GlossierLogo/GlossierLogo';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -80,6 +80,45 @@ const product__info = [
 ];
 const GlossierCheckoutGraphicWrapper = (props) => {
 	const { index } = props;
+	const [openCartItems, triggerOpenCartItems] = useState(false);
+	const [pressButton, triggerPressButton] = useState(false);
+	const [openPaySheetOverlay, triggerOpenPaySheetOverLay] = useState(false);
+	const [openPaySheet, triggerPaySheet] = useState(false);
+	const [showFaceId, triggerFaceId] = useState(false);
+	const reStart = () => {
+		triggerOpenCartItems(false);
+		triggerPressButton(false);
+		triggerOpenPaySheetOverLay(false);
+		triggerPaySheet(false);
+		triggerFaceId(false);
+	};
+	useEffect(() => {
+		if (index === 2) {
+			setTimeout(() => {
+				//1.when index equals to 2, hide pay sheet , use grow to display cart item
+				triggerOpenCartItems(true);
+				//2.activate press button
+				setTimeout(() => {
+					triggerPressButton(true);
+					//3.display pay sheet overlay
+					setTimeout(() => {
+						triggerOpenPaySheetOverLay(true);
+						//4. display pay sheet
+						setTimeout(() => {
+							triggerPaySheet(true);
+							//5.activate faceId
+							setTimeout(() => {
+								triggerFaceId(true);
+							}, 800);
+						}, 300);
+					}, 300);
+				}, 1000);
+			}, 800);
+		}
+		return () => {
+			reStart();
+		};
+	}, [index]);
 	return (
 		<GlossierCheckoutCheckoutGraphic>
 			<GlossierLogo />
@@ -93,33 +132,36 @@ const GlossierCheckoutGraphicWrapper = (props) => {
 			<Box
 				className='GlossierCheckoutCartGraphic__content'
 				sx={{ padding: '16px 0', display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-				<GlossierCheckoutCartGraphicItem>
-					<Typography variant='GlossierCheckoutCartGraphic__itemName' sx={{ margin: '0 0 6px 0' }}>
-						1 × Invisible Shield
-					</Typography>
-					<Typography variant='GlossierCheckoutCartGraphic__itemPrice'>S$34.00</Typography>
-					<ProductImage src={product__info[0].url} />
-					<Box
-						className='button-container'
-						sx={{ width: '100%', flexGrow: 1, display: 'flex', alignItems: 'center', gap: '2px' }}>
-						<ItemButton>Edit</ItemButton>
-						<ItemButton>Remove</ItemButton>
-					</Box>
-				</GlossierCheckoutCartGraphicItem>
-
-				<GlossierCheckoutCartGraphicItem>
-					<Typography variant='GlossierCheckoutCartGraphic__itemName' sx={{ margin: '0 0 6px 0' }}>
-						1 × Body Hero Wash
-					</Typography>
-					<Typography variant='GlossierCheckoutCartGraphic__itemPrice'>S$25.00</Typography>
-					<ProductImage src={product__info[1].url} />
-					<Box
-						className='button-container'
-						sx={{ width: '100%', flexGrow: 1, display: 'flex', alignItems: 'center', gap: '2px' }}>
-						<ItemButton>Edit</ItemButton>
-						<ItemButton>Remove</ItemButton>
-					</Box>
-				</GlossierCheckoutCartGraphicItem>
+				<Grow in={openCartItems}>
+					<GlossierCheckoutCartGraphicItem>
+						<Typography variant='GlossierCheckoutCartGraphic__itemName' sx={{ margin: '0 0 6px 0' }}>
+							1 × Invisible Shield
+						</Typography>
+						<Typography variant='GlossierCheckoutCartGraphic__itemPrice'>S$34.00</Typography>
+						<ProductImage src={product__info[0].url} />
+						<Box
+							className='button-container'
+							sx={{ width: '100%', flexGrow: 1, display: 'flex', alignItems: 'center', gap: '2px' }}>
+							<ItemButton>Edit</ItemButton>
+							<ItemButton>Remove</ItemButton>
+						</Box>
+					</GlossierCheckoutCartGraphicItem>
+				</Grow>
+				<Grow in={openCartItems} {...(openCartItems ? { timeout: 1000 } : {})}>
+					<GlossierCheckoutCartGraphicItem>
+						<Typography variant='GlossierCheckoutCartGraphic__itemName' sx={{ margin: '0 0 6px 0' }}>
+							1 × Body Hero Wash
+						</Typography>
+						<Typography variant='GlossierCheckoutCartGraphic__itemPrice'>S$25.00</Typography>
+						<ProductImage src={product__info[1].url} />
+						<Box
+							className='button-container'
+							sx={{ width: '100%', flexGrow: 1, display: 'flex', alignItems: 'center', gap: '2px' }}>
+							<ItemButton>Edit</ItemButton>
+							<ItemButton>Remove</ItemButton>
+						</Box>
+					</GlossierCheckoutCartGraphicItem>
+				</Grow>
 			</Box>
 			<Box
 				className='bottom-bar'
@@ -141,13 +183,21 @@ const GlossierCheckoutGraphicWrapper = (props) => {
 						width: '100%',
 						margin: '10px 0 0 0'
 					}}>
-					<ApplyPayButton sx={{ flexBasis: '100px' }}>
+					<ApplyPayButton sx={{ flexBasis: '100px' }} checked={pressButton}>
 						<ApplePayIcon viewBox='0 0 32 14' />
 					</ApplyPayButton>
 					<CheckOutButton>Checkout</CheckOutButton>
 				</Box>
 			</Box>
-			<ApplePaySheetForGlossier />
+			<Fade in={openPaySheetOverlay}>
+				<Box>
+					<ApplePaySheetForGlossier
+						openPaySheetOverlay={openPaySheetOverlay}
+						openPaySheet={openPaySheet}
+						showFaceId={showFaceId}
+					/>
+				</Box>
+			</Fade>
 		</GlossierCheckoutCheckoutGraphic>
 	);
 };

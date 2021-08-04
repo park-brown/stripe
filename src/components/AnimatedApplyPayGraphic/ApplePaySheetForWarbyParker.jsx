@@ -254,7 +254,7 @@ const ApplePaySheetForWarbyParker = (props) => {
 						</Box>
 					</ApplePayTotal>
 					<ApplePayFaceID>
-						<FaceIdAnimation autoplay={showFaceId} loop={1} />
+						<FaceIdAnimation autoplay={showFaceId} loop={0} />
 					</ApplePayFaceID>
 				</ApplePaySheet>
 			</Slide>

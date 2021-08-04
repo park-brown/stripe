@@ -1,11 +1,9 @@
 import React from 'react';
-import { Box, Typography, Fade } from '@material-ui/core';
+import { Box, Typography, Fade, Slide } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import ApplePayIcon from '../../SvgIcon/ApplePay/ApplePayIcon';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import VisaIcon from '../../SvgIcon/Visa/VisaIcon';
-import FaceFeatures from '../../SvgIcon/FaceFeatures/FaceFeatures';
-import FaceBorders from '../../SvgIcon/FaceBorders.jsx/FaceBorders';
 import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
 import FaceIdAnimation from './FaceIdAnimation';
 const ApplePaySheetWrapper = styled(Box, { name: 'apple-pay-sheet-wrapper' })(({ theme }) => ({
@@ -134,7 +132,7 @@ const ApplePaySheetForAway = (props) => {
 			<Fade in={openApplePaySheetOverylay} style={{ opacity: 0.2 }}>
 				<ApplePaySheetOverLay />
 			</Fade>
-			<Fade in={openApplePaySheet}>
+			<Slide direction='up' in={openApplePaySheet}>
 				<ApplePaySheet>
 					<ApplePaySheetHeader>
 						<Box gridArea='apple-pay-icon'>
@@ -275,10 +273,10 @@ const ApplePaySheetForAway = (props) => {
 						</Box>
 					</ApplePayTotal>
 					<ApplePayFaceID>
-						<FaceIdAnimation autoplay={showFaceId} loop={1} />
+						<FaceIdAnimation autoplay={showFaceId} loop={0} />
 					</ApplePayFaceID>
 				</ApplePaySheet>
-			</Fade>
+			</Slide>
 		</ApplePaySheetWrapper>
 	);
 };

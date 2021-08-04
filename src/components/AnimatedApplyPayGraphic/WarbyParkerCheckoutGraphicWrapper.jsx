@@ -149,9 +149,15 @@ const WarbyParkerCheckoutGraphicWrapper = (props) => {
 	const [showApplePaySheetOverLay, triggerApplePaySheetOverLay] = useState(false);
 	const [showApplePaySheet, triggerApplePaySheet] = useState(false);
 	const [showFaceId, triggerFaceId] = useState(false);
-	// when index = 1;
-
-	//1.first switch between four glasses
+	// when index = 1, restart
+	const reStart = () => {
+		setGlassIndex(0);
+		triggerPressButton(false);
+		triggerApplePaySheetOverLay(false);
+		triggerApplePaySheet(false);
+		triggerFaceId(false);
+	};
+	//1. switch between four glasses
 	const switchInterval = 1500;
 	useEffect(() => {
 		if (index === 0) {
@@ -194,6 +200,11 @@ const WarbyParkerCheckoutGraphicWrapper = (props) => {
 				default:
 					setGlassIndex(0);
 			}
+			return () => {
+				if (glassIndex === 3) {
+					reStart();
+				}
+			};
 		}
 	}, [glassIndex, index]);
 

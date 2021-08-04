@@ -37,42 +37,42 @@ const Screen = styled(Box, { name: 'animated-apple-pay-graphic-screen' })(({ the
 
 const AnimatedApplePayGraphic = ({ gridArea }) => {
 	const interval = 20000;
-	const [index, setIndex] = useState(1);
+	const [index, setIndex] = useState(0);
 
 	//shuffle effect
-	// useEffect(() => {
-	// 	switch (index) {
-	// 		case 0:
-	// 			setTimeout(
-	// 				() => {
-	// 					setIndex((prev) => prev + 1);
-	// 				},
+	useEffect(() => {
+		switch (index) {
+			case 0:
+				setTimeout(
+					() => {
+						setIndex((prev) => prev + 1);
+					},
 
-	// 				interval
-	// 			);
-	// 			break;
-	// 		case 1:
-	// 			setTimeout(
-	// 				() => {
-	// 					setIndex((prev) => prev + 1);
-	// 				},
+					interval
+				);
+				break;
+			case 1:
+				setTimeout(
+					() => {
+						setIndex((prev) => prev + 1);
+					},
 
-	// 				interval
-	// 			);
-	// 			break;
-	// 		case 2:
-	// 			setTimeout(
-	// 				() => {
-	// 					setIndex(0);
-	// 				},
+					interval
+				);
+				break;
+			case 2:
+				setTimeout(
+					() => {
+						setIndex(0);
+					},
 
-	// 				interval
-	// 			);
-	// 			break;
-	// 		default:
-	// 			setIndex(0);
-	// 	}
-	// }, [index]);
+					interval
+				);
+				break;
+			default:
+				setIndex(0);
+		}
+	}, [index]);
 
 	return (
 		<Container gridArea={gridArea}>
