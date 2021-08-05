@@ -226,6 +226,23 @@ theme.typography = {
 			lineHeight: '48px'
 		}
 	},
+	DesignedForDev_title_body: {
+		[theme.breakpoints.up('mobile')]: {
+			fontSize: '34px',
+			lineHeight: '42px',
+			letterSpacing: '0.2px',
+			fontWeight: 600,
+			color: '#fff'
+		},
+		[theme.breakpoints.up('tablet')]: {
+			fontSize: '30px',
+			lineHeight: '40px'
+		},
+		[theme.breakpoints.up('laptop')]: {
+			fontSize: '36px',
+			lineHeight: '48px'
+		}
+	},
 	PostmatesCardDesign__fleetLabel: {
 		fontSize: '16px',
 		lineHeight: '22.4px',
@@ -324,7 +341,7 @@ theme.typography = {
 	},
 	RadarDashboardGraphic__sidebar_navItem: {
 		fontSize: '13px',
-		fontWeight: '300',
+		fontWeight: 300,
 		letterSpacing: '.2px',
 		lineHeight: '20px',
 		color: '#425466',

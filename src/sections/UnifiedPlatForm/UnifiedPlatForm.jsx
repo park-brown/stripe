@@ -42,7 +42,7 @@ const LayOut = styled(Box, { name: 'unified-platform-layout' })(({ theme }) => (
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
 		height: '100%',
-		padding: '72px 0  148px 0 ',
+		padding: '72px 0  0 0 ',
 		display: 'grid',
 		gridTemplateColumns: '100%',
 		gridTemplateRows: 'repeat(5,auto)',
