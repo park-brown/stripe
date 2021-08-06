@@ -275,16 +275,13 @@ const CodeDemoContainer = styled(Box, { name: 'code-demo-container' })(({ theme 
 	gridArea: 'CodeDemo',
 	width: '100%',
 	color: '#fff',
-	backgroundColor: 'rgba(15,57,94,.7)',
+	backgroundColor: 'rgba(15,57,94,.99)',
 	borderRadius: '8px',
 	display: 'flex',
 	alignItems: 'flex-start',
-	// overflow: 'hidden',
 	position: 'relative',
-	padding: '0 0 0 38px'
-	// maskImage: `linear-gradient(
-	// 	90deg
-	// 	,#000,#000 38px,transparent 38px,#000 58px,#000 calc(100% - 20px),transparent);`
+	padding: '0 0 24px 38px',
+	overflow: 'hidden'
 }));
 const CodeEditorLineNumbers = styled(Box, { name: 'CodeEditorLineNumbers' })(({ theme }) => ({
 	width: '38px',
@@ -316,14 +313,15 @@ const CodeEditorAsciiLoader = styled(Box, { name: 'CodeEditorAsciiLoader' })(({ 
 }));
 const CodeEditorStatusBar = styled(Box, { name: 'CodeEditorStatusBar' })(({ theme }) => ({
 	position: 'absolute',
-	bottom: '-24px',
+	bottom: 0,
 	left: 0,
 	right: 0,
 	height: '24px',
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
-	backgroundColor: 'rgba(15,57,94,0.99)',
+	// backgroundColor: 'rgba(15,57,94,0.99)',
+	backgroundColor: '#0c2e4e',
 	color: '#55718d'
 }));
 const CodeEditorTypingArea = styled(Box, { name: 'CodeEditor__typingArea' })(({ theme }) => ({
@@ -351,6 +349,13 @@ const EditorStatusBarEditingMode = styled(Box, { name: 'EditorStatusBar__editing
 		borderRight: ' 0 solid transparent',
 		borderTop: '12px solid transparent'
 	}
+}));
+const TerminalContainer = styled(Box, { name: 'terminal-container' })(({ theme }) => ({
+	gridArea: 'terminal',
+	backgroundColor: '#06182c',
+	minHeight: '296px',
+	overflow: 'hidden',
+	whiteSpace: 'nowrap'
 }));
 const DesignedForDevlopers = () => {
 	return (
@@ -530,6 +535,68 @@ const DesignedForDevlopers = () => {
 								</Box>
 							</CodeEditorStatusBar>
 						</CodeDemoContainer>
+						<TerminalContainer>
+							<Box
+								className='terminal__inner'
+								sx={{
+									width: '100%',
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'flex-start',
+									padding: '16px 0 0 16px',
+									gap: '4px'
+								}}>
+								<Box sx={{ display: 'flex', alignItems: 'center' }}>
+									<Typography variant='CodeSyntax__token__keyword' sx={{ margin: '0 0 0 10px' }}>
+										$
+									</Typography>
+									<Typography variant='CodeSyntax__token__text' sx={{ margin: '0 0 0 10px' }}>
+										node server.js &nbsp; && &nbsp; stripe listen
+									</Typography>
+								</Box>
+								<Box sx={{ display: 'flex', alignItems: 'center' }}>
+									<Typography variant='CodeSyntax__token__text' sx={{ margin: '0 0 0 10px' }}>
+										&gt;
+									</Typography>
+									<Typography variant='CodeSyntax__token__text' sx={{ margin: '0 0 0 10px' }}>
+										Ready! &nbsp;Waiting for requests...
+									</Typography>
+								</Box>
+								<Box sx={{ display: 'flex', alignItems: 'center' }}>
+									<Typography variant='CodeEditorLineNumbers__number' sx={{ margin: '0 0 0 10px' }}>
+										2021-08-05 07:38:01&nbsp;&nbsp;
+									</Typography>
+									<Typography variant='CodeSyntax__token__punctuation'>[</Typography>
+									<Typography variant='CodeSyntax__token__function'>200</Typography>
+									<Typography variant='CodeSyntax__token__punctuation'>]</Typography>
+									<Typography variant='CodeSyntax__token__text' sx={{ margin: '0 0 0 10px' }}>
+										payment_intent.created
+									</Typography>
+								</Box>
+								<Box sx={{ display: 'flex', alignItems: 'center' }}>
+									<Typography variant='CodeEditorLineNumbers__number' sx={{ margin: '0 0 0 10px' }}>
+										2021-08-05 07:38:01&nbsp;&nbsp;
+									</Typography>
+									<Typography variant='CodeSyntax__token__punctuation'>[</Typography>
+									<Typography variant='CodeSyntax__token__function'>200</Typography>
+									<Typography variant='CodeSyntax__token__punctuation'>]</Typography>
+									<Typography variant='CodeSyntax__token__text' sx={{ margin: '0 0 0 10px' }}>
+										charge.succeeded
+									</Typography>
+								</Box>
+								<Box sx={{ display: 'flex', alignItems: 'center' }}>
+									<Typography variant='CodeEditorLineNumbers__number' sx={{ margin: '0 0 0 10px' }}>
+										2021-08-05 07:38:01&nbsp;&nbsp;
+									</Typography>
+									<Typography variant='CodeSyntax__token__punctuation'>[</Typography>
+									<Typography variant='CodeSyntax__token__function'>200</Typography>
+									<Typography variant='CodeSyntax__token__punctuation'>]</Typography>
+									<Typography variant='CodeSyntax__token__text' sx={{ margin: '0 0 0 10px' }}>
+										payment_intent.succeeded
+									</Typography>
+								</Box>
+							</Box>
+						</TerminalContainer>
 					</CodeDemoAndTerminalContainer>
 				</LayOut>
 			</LayOutContainer>
