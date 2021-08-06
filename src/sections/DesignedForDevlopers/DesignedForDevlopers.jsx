@@ -48,7 +48,7 @@ const LayOut = styled(Box, { name: 'section-layout' })(({ theme }) => ({
 		height: '100%',
 		padding: '200px 0  150px 0 ',
 		display: 'grid',
-		gridTemplateRows: 'repeat(2,1fr)',
+		gridTemplateRows: 'repeat(2,auto)',
 		gridTemplateColumns: '1fr',
 		gap: '32px 0',
 		gridTemplateAreas: `"Intro-sneak-peek"
@@ -240,6 +240,118 @@ const SneakPeekInnerButton = styled(Button, { name: 'sneak-peek-inner-button' })
 		}
 	}
 }));
+
+const CodeDemoAndTerminalContainer = styled(Box, { name: 'code-and-terminal-container' })(({ theme }) => ({
+	[theme.breakpoints.up('mobile')]: {
+		gridArea: 'code-and-terminal',
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		gridTemplateRows: 'repeat(2,auto)',
+		gap: '32px 0',
+		gridTemplateAreas: `"CodeDemo"
+                        "terminal"`
+	},
+	[theme.breakpoints.up('tablet')]: {
+		gridArea: 'code-and-terminal',
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		gridTemplateRows: 'repeat(2,auto)',
+		gap: '48px 0',
+		gridTemplateAreas: `"CodeDemo"
+                        "terminal"`
+	},
+	[theme.breakpoints.up('laptop')]: {
+		// padding: theme.spacing(0, 0, 0, 4),
+		gridArea: 'code-and-terminal',
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		gridTemplateRows: 'repeat(2,1fr)',
+		gap: '64px 0',
+		gridTemplateAreas: `"CodeDemo"
+                        "terminal"`
+	}
+}));
+const CodeDemoContainer = styled(Box, { name: 'code-demo-container' })(({ theme }) => ({
+	gridArea: 'CodeDemo',
+	width: '100%',
+	color: '#fff',
+	backgroundColor: 'rgba(15,57,94,.7)',
+	borderRadius: '8px',
+	display: 'flex',
+	alignItems: 'flex-start',
+	// overflow: 'hidden',
+	position: 'relative',
+	padding: '0 0 0 38px'
+	// maskImage: `linear-gradient(
+	// 	90deg
+	// 	,#000,#000 38px,transparent 38px,#000 58px,#000 calc(100% - 20px),transparent);`
+}));
+const CodeEditorLineNumbers = styled(Box, { name: 'CodeEditorLineNumbers' })(({ theme }) => ({
+	width: '38px',
+	height: '100%',
+	minHeight: '100%',
+	position: 'absolute',
+	top: 0,
+	left: 0,
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'flex-end',
+	textAlign: 'right',
+	padding: theme.spacing(4, 0, 4, 0),
+	color: '#55718d',
+	backgroundColor: '#0c2e4e'
+}));
+const CodeEditorAsciiLoader = styled(Box, { name: 'CodeEditorAsciiLoader' })(({ theme }) => ({
+	position: 'absolute',
+	fontFamily: 'monospace',
+	fontSize: '18px',
+	top: '11px',
+	left: '48px',
+	'&::before': {
+		display: 'block',
+		content: '"⣾"',
+		fontFamily: 'monospace',
+		fontSize: '18px'
+	}
+}));
+const CodeEditorStatusBar = styled(Box, { name: 'CodeEditorStatusBar' })(({ theme }) => ({
+	position: 'absolute',
+	bottom: '-24px',
+	left: 0,
+	right: 0,
+	height: '24px',
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'space-between',
+	backgroundColor: 'rgba(15,57,94,0.99)',
+	color: '#55718d'
+}));
+const CodeEditorTypingArea = styled(Box, { name: 'CodeEditor__typingArea' })(({ theme }) => ({
+	width: '100%',
+	padding: '16px 0 16px 16px'
+}));
+const EditorStatusBarEditingMode = styled(Box, { name: 'EditorStatusBar__editingMode' })(({ theme }) => ({
+	...theme.typography.CodeSyntax__token__text,
+	backgroundColor: '#8095ff',
+	color: '#06182c',
+	textTransform: 'capitalize',
+	padding: '0 5px 0 9px',
+	margin: '0 9px 0 0',
+	position: 'relative',
+	'&::after': {
+		content: '""',
+		position: 'absolute',
+		top: '-2px',
+		right: 0,
+		transform: 'translateX(100%)',
+		width: 0,
+		height: 0,
+		borderLeft: '9px solid #8095ff',
+		borderBottom: '12px solid transparent',
+		borderRight: ' 0 solid transparent',
+		borderTop: '12px solid transparent'
+	}
+}));
 const DesignedForDevlopers = () => {
 	return (
 		<SectionContainer component='section'>
@@ -317,6 +429,108 @@ const DesignedForDevlopers = () => {
 							</SneakPeekItem>
 						</SneakPeekContainer>
 					</CopyContainer>
+					<CodeDemoAndTerminalContainer>
+						<CodeDemoContainer component='code'>
+							<CodeEditorLineNumbers>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									1
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									2
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									3
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									4
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									5
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									6
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									~
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									~
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									~
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									~
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									~
+								</Typography>
+								<Typography variant='CodeEditorLineNumbers__number' sx={{ padding: '0 6px' }}>
+									~
+								</Typography>
+							</CodeEditorLineNumbers>
+							{/* <CodeEditorAsciiLoader /> */}
+							<CodeEditorTypingArea>
+								{/*const stripe = require('stripe')('sk_test_BQokikJOvBi2Hl4olfQ2');
+
+                  await stripe.paymentIntents.create({
+                   amount: 2000,
+                   currency: 'usd'
+                  }); */}
+								<Typography variant='CodeSyntax__token__keyword'>const</Typography>
+								<Typography variant='CodeSyntax__token__text'>&nbsp;&nbsp;stripe &nbsp;&nbsp;</Typography>
+								<Typography variant='CodeSyntax__token__operator'>= &nbsp;&nbsp;</Typography>
+								<Typography variant='CodeSyntax__token__function'>require</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>(</Typography>
+								<Typography variant='CodeSyntax__token__string'>'stripe'</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>)</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>(</Typography>
+								<Typography variant='CodeSyntax__token__string'>'sk_test_BQokikJOvBi2Hl4olfQ2'</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>)</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>;</Typography>
+								<Typography sx={{ display: 'block', width: '100%', height: '28px' }}></Typography>
+								<Typography variant='CodeSyntax__token__keyword'>await</Typography>
+								<Typography variant='CodeSyntax__token__text'>&nbsp;&nbsp;stripe</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>.</Typography>
+								<Typography variant='CodeSyntax__token__text'>paymentIntents</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>.</Typography>
+								<Typography variant='CodeSyntax__token__function'>create</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>(</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'> &#123;</Typography>
+								<br />
+								<Typography variant='CodeSyntax__token__text'>&nbsp;&nbsp;amount&nbsp;</Typography>
+								<Typography variant='CodeSyntax__token__operator'>: &nbsp;&nbsp;</Typography>
+								<Typography variant='CodeSyntax__token__number'>2000</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'>,</Typography>
+								<br />
+								<Typography variant='CodeSyntax__token__text'>&nbsp;&nbsp;currency&nbsp;</Typography>
+								<Typography variant='CodeSyntax__token__operator'>: &nbsp;&nbsp;</Typography>
+								<Typography variant='CodeSyntax__token__string'>'usd'</Typography>
+								<br />
+								<Typography variant='CodeSyntax__token__punctuation'> &#125;</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'> )</Typography>
+								<Typography variant='CodeSyntax__token__punctuation'> ;</Typography>
+							</CodeEditorTypingArea>
+							<CodeEditorStatusBar>
+								<Box className='CodeEditorStatusBar__left' sx={{ display: 'flex' }}>
+									<EditorStatusBarEditingMode>Normal</EditorStatusBarEditingMode>
+									<Typography variant='CodeSyntax__token__keyword' sx={{ margin: '0 0 0 10px' }}>
+										server.js
+									</Typography>
+								</Box>
+								<Box
+									className='CodeEditorStatusBar__right'
+									sx={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0 16px 0 0' }}>
+									<Typography variant='CodeEditorLineNumbers__number'>100%</Typography>
+									<Typography variant='CodeEditorLineNumbers__number'>☰</Typography>
+									<Typography variant='CodeEditorLineNumbers__number'>6/6</Typography>
+									<Typography variant='CodeEditorLineNumbers__number'>In</Typography>
+									<Typography variant='CodeEditorLineNumbers__number'>:</Typography>
+									<Typography variant='CodeEditorLineNumbers__number'>4</Typography>
+								</Box>
+							</CodeEditorStatusBar>
+						</CodeDemoContainer>
+					</CodeDemoAndTerminalContainer>
 				</LayOut>
 			</LayOutContainer>
 		</SectionContainer>

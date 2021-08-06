@@ -346,6 +346,74 @@ theme.typography = {
 		lineHeight: '20px',
 		color: '#425466',
 		textTransform: 'capitalize'
+	},
+	CodeEditorLineNumbers__number: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 500,
+		letterSpacing: '.2px',
+		lineHeight: '24px',
+		color: '#55718d',
+		textAlign: 'right'
+	},
+	CodeSyntax__token__keyword: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 500,
+		letterSpacing: '.2px',
+		lineHeight: '17.6px',
+		color: '#8095ff'
+	},
+	CodeSyntax__token__text: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 500,
+		letterSpacing: '.2px',
+		lineHeight: '22px',
+		color: '#fff'
+	},
+	CodeSyntax__token__operator: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 600,
+		letterSpacing: '.2px',
+		lineHeight: '17.6px',
+		color: '#fff'
+	},
+	CodeSyntax__token__punctuation: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 600,
+		letterSpacing: '.2px',
+		lineHeight: '17.6px',
+		color: '#fff',
+		display: 'inline-block',
+		width: '8.4px',
+		textAlign: 'center'
+	},
+	CodeSyntax__token__function: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 500,
+		letterSpacing: '.2px',
+		lineHeight: '17.6px',
+		color: '#00d4ff'
+	},
+	CodeSyntax__token__string: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 500,
+		letterSpacing: '.2px',
+		lineHeight: '17.6px',
+		color: '#ffa956'
+	},
+	CodeSyntax__token__number: {
+		fontSize: '14px',
+		fontFamily: '"SourceCodePro"',
+		fontWeight: 500,
+		letterSpacing: '.2px',
+		lineHeight: '17.6px',
+		color: '#ffd96a'
 	}
 };
 
