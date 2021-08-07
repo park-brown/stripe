@@ -36,7 +36,6 @@ const BackGround = styled(Box, { name: 'section-background' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		position: 'relative',
 		height: 'calc(100% - 0.1051 * 100vw)', // 100% height - tan6 * current width
-
 		width: '100%',
 		top: 0,
 		left: 0,

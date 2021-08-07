@@ -7,20 +7,8 @@ const SectionContainer = styled(Box, { name: 'why-stripe-section-container' })((
 		height: '100vh',
 		backgroundColor: '#fff',
 		position: 'relative',
-		marginTop: '-60px',
+		marginTop: `calc(100vw * -0.1051)`,
 		zIndex: -1
-	},
-	[theme.breakpoints.up('tablet')]: {
-		marginTop: '-222px'
-	},
-	[theme.breakpoints.up('tabletX')]: {
-		marginTop: '-168px'
-	},
-	[theme.breakpoints.up('laptop')]: {
-		marginTop: '-300px'
-	},
-	[theme.breakpoints.up('desktop')]: {
-		marginTop: '-340px'
 	}
 }));
 const LayOutContainer = styled(Box, { name: 'section-layout-container' })(({ theme }) => ({
@@ -57,7 +45,7 @@ const TopRightRibbon = styled(Box, { name: 'why-stripe-section-top-right-ribbon'
 		transformOrigin: 'top right'
 	}
 }));
-const TopRightRibbonInner = styled(Box, { name: 'why-stripe-section-top-right-ribbon-top' })(({ theme }) => ({
+const TopRightRibbonCyan = styled(Box, { name: 'why-stripe-section-top-right-ribbon-top' })(({ theme }) => ({
 	width: '315px',
 	height: '40px',
 	backgroundColor: '#80e9ff',
@@ -65,13 +53,35 @@ const TopRightRibbonInner = styled(Box, { name: 'why-stripe-section-top-right-ri
 	top: 0,
 	right: 0
 }));
+const TopRightRibbonBlue = styled(Box, { name: 'why-stripe-section-top-right-ribbon-Bottom' })(({ theme }) => ({
+	width: '160px',
+	height: '40px',
+	backgroundColor: '#7a73ff',
+	position: 'absolute',
+	top: 0,
+	right: 0,
+	transform: 'translateY(24px) translateX(-157.5px) translate(50%,0)'
+}));
+const TopRightRibbonOverlay = styled(Box, { name: 'why-stripe-section-top-right-ribbon-overlay' })(({ theme }) => ({
+	width: '160px',
+	height: '16px',
+	backgroundColor: '#0048e5',
+	position: 'absolute',
+	top: 0,
+	right: 0,
+	transform: 'translateY(24px) translateX(-157.5px) translate(50%,0)'
+}));
 const WhyStripe = () => {
 	return (
 		<SectionContainer component='section'>
-			{/* <TopRightRibbon>
-				<TopRightRibbonInner />
-			</TopRightRibbon> */}
-			<LayOutContainer></LayOutContainer>
+			<TopRightRibbon>
+				<TopRightRibbonCyan />
+				<TopRightRibbonBlue />
+				<TopRightRibbonOverlay />
+			</TopRightRibbon>
+			<LayOutContainer>
+				<SectionLayOut></SectionLayOut>
+			</LayOutContainer>
 		</SectionContainer>
 	);
 };
