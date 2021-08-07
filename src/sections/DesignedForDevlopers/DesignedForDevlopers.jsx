@@ -5,31 +5,64 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { styled } from '@material-ui/core/styles';
 import AnimatedIconForLibraries from '../../SvgIcon/AnimatedIcon/AnimatedIconForLibraries';
 import AnimatedIconForExplore from '../../SvgIcon/AnimatedIcon/AnimatedIconForExplore';
+
 const SectionContainer = styled(Box, { name: 'designed-for-developers-section' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
-		// height: '1300px',
-		backgroundColor: '#0a2540',
+		backgroundColor: 'transparent',
 		overflow: 'hidden',
 		position: 'relative',
 		border: 'none',
-		marginTop: '-150px',
-		clipPath: 'polygon(0 5%, 100% 2%, 100% 92%, 0% 95%)'
+		marginTop: '-120px',
+		zIndex: 0
 	},
 	[theme.breakpoints.up('tablet')]: {
-		marginTop: '-160px',
-		clipPath: 'polygon(0 12%, 100% 0%, 100% 88%, 0% 100%)'
+		marginTop: '-130px'
 	},
 	[theme.breakpoints.up('laptop')]: {
-		marginTop: '-160px',
-		clipPath: 'polygon(0 12%, 100% 0%, 100% 88%, 0% 100%)'
+		marginTop: '-200px'
+	},
+	[theme.breakpoints.up('desktop')]: {
+		marginTop: '-270px'
+	}
+}));
+const BackgroundMask = styled(Box, { name: 'section-background-mask' })(({ theme }) => ({
+	width: '100%',
+	height: '100%',
+	overflow: 'hidden',
+	position: 'absolute'
+}));
+const BackGround = styled(Box, { name: 'section-background' })(({ theme }) => ({
+	[theme.breakpoints.up('mobile')]: {
+		position: 'relative',
+		height: '100%',
+		maxHeight: '1800px',
+		width: '100%',
+		top: 0,
+		left: 0,
+		transformOrigin: 'top right',
+		transform: 'skewY(-6deg)',
+		background: '#0a2540',
+		overflow: 'hidden',
+		zIndex: 1
+	},
+	[theme.breakpoints.up('tablet')]: {
+		maxHeight: '1080px'
+	},
+	[theme.breakpoints.up('laptop')]: {
+		maxHeight: '990px'
+	},
+	[theme.breakpoints.up('desktop')]: {
+		maxHeight: '940px'
 	}
 }));
 const LayOutContainer = styled(Box, { name: 'section-layout-container' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: 'auto',
 		height: '100%',
-		margin: theme.spacing(0, 4)
+		margin: theme.spacing(0, 4),
+		position: 'relative',
+		zIndex: 2
 	},
 	[theme.breakpoints.up('tablet')]: {
 		width: 'auto',
@@ -46,7 +79,7 @@ const LayOut = styled(Box, { name: 'section-layout' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
 		height: '100%',
-		padding: '200px 0  150px 0 ',
+		padding: '180px 0  200px 0 ',
 		display: 'grid',
 		gridTemplateRows: 'repeat(2,auto)',
 		gridTemplateColumns: '1fr',
@@ -62,7 +95,7 @@ const LayOut = styled(Box, { name: 'section-layout' })(({ theme }) => ({
 		gridTemplateAreas: `"Intro-sneak-peek code-and-terminal"`
 	},
 	[theme.breakpoints.up('laptop')]: {
-		padding: '260px 0 160px 0 ',
+		padding: '260px 0 260px 0 ',
 		gridTemplateRows: '1fr',
 		gridTemplateColumns: 'repeat(2,1fr)',
 		gap: '0 0',
@@ -360,6 +393,9 @@ const TerminalContainer = styled(Box, { name: 'terminal-container' })(({ theme }
 const DesignedForDevlopers = () => {
 	return (
 		<SectionContainer component='section'>
+			<BackgroundMask>
+				<BackGround />
+			</BackgroundMask>
 			<LayOutContainer>
 				<LayOut>
 					<CopyContainer>

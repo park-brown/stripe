@@ -12,16 +12,16 @@ const UnifiedPlatFormContainer = styled(Box, { name: 'unified-platform-section' 
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
 		backgroundColor: '#f6f9fc',
-		clipPath: 'polygon(0 0, 100% 0%, 100% 93%, 0% 100%)',
+		// clipPath: 'polygon(0 0, 100% 0%, 100% 93%, 0% 100%)',
 		overflow: 'hidden',
 		display: 'flex',
 		alignItems: 'center'
 	},
 	[theme.breakpoints.up('tablet')]: {
-		clipPath: 'polygon(0 0, 100% 0%, 100% 91.5%, 0% 100%)'
+		// clipPath: 'polygon(0 0, 100% 0%, 100% 91.5%, 0% 100%)'
 	},
 	[theme.breakpoints.up('laptop')]: {
-		clipPath: 'polygon(0 0, 100% 0%, 100% 90%, 0% 100%)'
+		// clipPath: 'polygon(0 0, 100% 0%, 100% 90%, 0% 100%)'
 	}
 }));
 const LayOutContainer = styled(Box, { name: 'unified-platform-layout-container' })(({ theme }) => ({
@@ -65,7 +65,7 @@ const LayOut = styled(Box, { name: 'unified-platform-layout' })(({ theme }) => (
                         "unified-platform-graphic     unified-platform-graphic"`
 	},
 	[theme.breakpoints.up('laptop')]: {
-		padding: '128px 0 256px 0 ',
+		padding: '128px 0 360px 0 ',
 		display: 'grid',
 		gridTemplateColumns: 'repeat(2,1fr)',
 		gridTemplateRows: 'repeat(4,auto)',
@@ -74,6 +74,9 @@ const LayOut = styled(Box, { name: 'unified-platform-layout' })(({ theme }) => (
                         "unified-platform-desc-1     unified-platform-desc-2"
                         "unified-platform-CTA        ."
                         "unified-platform-graphic    unified-platform-graphic"`
+	},
+	[theme.breakpoints.up('desktop')]: {
+		padding: '128px 0 360px 0 '
 	}
 }));
 const UnifiedPlatFormTitle = styled(Box, { name: 'unified-platform-title ' })(({ theme }) => ({

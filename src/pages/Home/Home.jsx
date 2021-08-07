@@ -3,6 +3,7 @@ import DesignedForDevlopers from '../../sections/DesignedForDevlopers/DesignedFo
 import Header from '../../sections/Header/Header';
 import Hero from '../../sections/Hero/Hero';
 import UnifiedPlatForm from '../../sections/UnifiedPlatForm/UnifiedPlatForm';
+import WhyStripe from '../../sections/WhyStripe/WhyStripe';
 
 const Home = () => {
 	return (
@@ -11,6 +12,7 @@ const Home = () => {
 			<Hero />
 			<UnifiedPlatForm />
 			<DesignedForDevlopers />
+			<WhyStripe />
 		</React.Fragment>
 	);
 };
