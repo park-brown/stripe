@@ -35,25 +35,16 @@ const BackgroundMask = styled(Box, { name: 'section-background-mask' })(({ theme
 const BackGround = styled(Box, { name: 'section-background' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		position: 'relative',
-		height: '100%',
-		maxHeight: '1800px',
+		height: 'calc(100% - 0.1051 * 100vw)', // 100% height - tan6 * current width
+
 		width: '100%',
 		top: 0,
 		left: 0,
-		transformOrigin: 'top right',
+		transformOrigin: '100% 0',
 		transform: 'skewY(-6deg)',
 		background: '#0a2540',
 		overflow: 'hidden',
 		zIndex: 1
-	},
-	[theme.breakpoints.up('tablet')]: {
-		maxHeight: '1080px'
-	},
-	[theme.breakpoints.up('laptop')]: {
-		maxHeight: '990px'
-	},
-	[theme.breakpoints.up('desktop')]: {
-		maxHeight: '940px'
 	}
 }));
 const LayOutContainer = styled(Box, { name: 'section-layout-container' })(({ theme }) => ({
@@ -79,7 +70,7 @@ const LayOut = styled(Box, { name: 'section-layout' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
 		height: '100%',
-		padding: '180px 0  200px 0 ',
+		padding: '180px 0  240px 0 ',
 		display: 'grid',
 		gridTemplateRows: 'repeat(2,auto)',
 		gridTemplateColumns: '1fr',
@@ -88,14 +79,14 @@ const LayOut = styled(Box, { name: 'section-layout' })(({ theme }) => ({
                        "code-and-terminal"`
 	},
 	[theme.breakpoints.up('tablet')]: {
-		padding: '240px 0 160px 0 ',
+		padding: '240px 0 240px 0 ',
 		gridTemplateRows: '1fr',
 		gridTemplateColumns: 'repeat(2,1fr)',
 		gap: '0 0',
 		gridTemplateAreas: `"Intro-sneak-peek code-and-terminal"`
 	},
 	[theme.breakpoints.up('laptop')]: {
-		padding: '260px 0 260px 0 ',
+		padding: '260px 0 320px 0 ',
 		gridTemplateRows: '1fr',
 		gridTemplateColumns: 'repeat(2,1fr)',
 		gap: '0 0',
@@ -187,7 +178,7 @@ const SneakPeekContainer = styled(Box, { name: 'sneak-peek-container' })(({ them
 		justifyContent: 'flex-start',
 		gap: '0px'
 	},
-	[theme.breakpoints.up('tabletX')]: {
+	[theme.breakpoints.up('laptop')]: {
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'flex-start',
@@ -212,7 +203,7 @@ const SneakPeekItem = styled(Box, { name: 'sneak-peek-item' })(({ theme }) => ({
 		flexBasis: '100%',
 		maxWidth: '100%'
 	},
-	[theme.breakpoints.up('tabletX')]: {
+	[theme.breakpoints.up('laptop')]: {
 		width: '50%',
 		flexBasis: '50%'
 	}
@@ -387,6 +378,7 @@ const TerminalContainer = styled(Box, { name: 'terminal-container' })(({ theme }
 	gridArea: 'terminal',
 	backgroundColor: '#06182c',
 	minHeight: '296px',
+	maxHeight: '296px',
 	overflow: 'hidden',
 	whiteSpace: 'nowrap'
 }));

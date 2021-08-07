@@ -6,17 +6,21 @@ const SectionContainer = styled(Box, { name: 'why-stripe-section-container' })((
 		width: '100%',
 		height: '100vh',
 		backgroundColor: '#fff',
-		position: 'relative'
-		// marginTop: '-160px'
-		// clipPath: 'polygon(0 7%, 100% 0%, 100% 93%, 0% 100%)'
+		position: 'relative',
+		marginTop: '-60px',
+		zIndex: -1
 	},
 	[theme.breakpoints.up('tablet')]: {
-		// marginTop: '-145px'
-		// clipPath: 'polygon(0 15%, 100% 0%, 100% 85%, 0% 100%)'
+		marginTop: '-222px'
+	},
+	[theme.breakpoints.up('tabletX')]: {
+		marginTop: '-168px'
 	},
 	[theme.breakpoints.up('laptop')]: {
-		// marginTop: '-135px'
-		// clipPath: 'polygon(0 15%, 100% 0%, 100% 85%, 0% 100%)'
+		marginTop: '-300px'
+	},
+	[theme.breakpoints.up('desktop')]: {
+		marginTop: '-340px'
 	}
 }));
 const LayOutContainer = styled(Box, { name: 'section-layout-container' })(({ theme }) => ({
@@ -49,14 +53,27 @@ const TopRightRibbon = styled(Box, { name: 'why-stripe-section-top-right-ribbon'
 		left: 0,
 		height: '72px',
 		overflow: 'hidden',
-		backgroundColor: 'red',
-
-		transform: 'skewY(-3deg) ',
-		transformOrigin: 'top left'
+		transform: 'skewY(-6deg) ',
+		transformOrigin: 'top right'
 	}
 }));
+const TopRightRibbonInner = styled(Box, { name: 'why-stripe-section-top-right-ribbon-top' })(({ theme }) => ({
+	width: '315px',
+	height: '40px',
+	backgroundColor: '#80e9ff',
+	position: 'absolute',
+	top: 0,
+	right: 0
+}));
 const WhyStripe = () => {
-	return <SectionContainer component='section'></SectionContainer>;
+	return (
+		<SectionContainer component='section'>
+			{/* <TopRightRibbon>
+				<TopRightRibbonInner />
+			</TopRightRibbon> */}
+			<LayOutContainer></LayOutContainer>
+		</SectionContainer>
+	);
 };
 
 export default WhyStripe;
