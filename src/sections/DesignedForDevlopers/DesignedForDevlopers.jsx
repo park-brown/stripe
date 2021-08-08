@@ -184,7 +184,7 @@ const SneakPeekContainer = styled(Box, { name: 'sneak-peek-container' })(({ them
 		gap: '0px'
 	}
 }));
-const SneakPeekItem = styled(Box, { name: 'sneak-peek-item' })(({ theme }) => ({
+export const SneakPeekItem = styled(Box, { name: 'sneak-peek-item' })(({ theme }) => ({
 	[theme.breakpoints.up('mobile')]: {
 		width: '100%',
 		flexBasis: '100%',
@@ -207,7 +207,7 @@ const SneakPeekItem = styled(Box, { name: 'sneak-peek-item' })(({ theme }) => ({
 		flexBasis: '50%'
 	}
 }));
-const SneakPeekHeader = styled(Box, { name: 'sneak-peek-header' })(({ theme }) => ({
+export const SneakPeekHeader = styled(Box, { name: 'sneak-peek-header' })(({ theme }) => ({
 	width: '100%',
 	display: 'flex',
 	flexDirection: 'column',
@@ -216,7 +216,7 @@ const SneakPeekHeader = styled(Box, { name: 'sneak-peek-header' })(({ theme }) =
 	gap: theme.spacing(2),
 	padding: theme.spacing(0, 8, 0, 4)
 }));
-const SneakPeekHeaderTitle = styled(Typography, { name: 'sneak-peek-header-title' })(({ theme }) => ({
+export const SneakPeekHeaderTitle = styled(Typography, { name: 'sneak-peek-header-title' })(({ theme }) => ({
 	...theme.typography.HomepageHeroHeader__Copy__body,
 	color: '#fff',
 	position: 'relative',

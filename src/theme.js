@@ -414,6 +414,13 @@ theme.typography = {
 		letterSpacing: '.2px',
 		lineHeight: '17.6px',
 		color: '#ffd96a'
+	},
+	why__section__feature__body: {
+		fontSize: '15px',
+		fontWeight: 300,
+		letterSpacing: '.2px',
+		lineHeight: '24px',
+		color: '#425466'
 	}
 };
 
