@@ -1,5 +1,6 @@
 import React from 'react';
 import DesignedForDevlopers from '../../sections/DesignedForDevlopers/DesignedForDevlopers';
+import GlobalScale from '../../sections/GlobalScale/GlobalScale';
 import Header from '../../sections/Header/Header';
 import Hero from '../../sections/Hero/Hero';
 import UnifiedPlatForm from '../../sections/UnifiedPlatForm/UnifiedPlatForm';
@@ -13,6 +14,7 @@ const Home = () => {
 			<UnifiedPlatForm />
 			<DesignedForDevlopers />
 			<WhyStripe />
+			<GlobalScale />
 		</React.Fragment>
 	);
 };
