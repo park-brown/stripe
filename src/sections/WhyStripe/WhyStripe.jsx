@@ -161,7 +161,7 @@ const FeatureContainer = styled(Box, { name: 'why-scetion-feature-container' })(
 		gridTemplateAreas: `"close-to-the-metal fastest-improving-platform battle-tested-reliability intelligent-optimizations"`
 	}
 }));
-const FeatureItem = styled(Box, { name: 'feature-item' })(({ theme, gridArea }) => ({
+export const FeatureItem = styled(Box, { name: 'feature-item' })(({ theme, gridArea }) => ({
 	gridArea: gridArea,
 	display: 'flex',
 	flexDirection: 'column',
@@ -169,14 +169,14 @@ const FeatureItem = styled(Box, { name: 'feature-item' })(({ theme, gridArea }) 
 	justifyContent: 'flex-start',
 	gap: '8px'
 }));
-const FeatureItemHeader = styled(Box, { name: 'feature-item-header' })(({ theme }) => ({
+export const FeatureItemHeader = styled(Box, { name: 'feature-item-header' })(({ theme }) => ({
 	width: '100%',
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '16px',
 	alignItems: 'flex-start'
 }));
-const FeatureItemHeaderTitle = styled(Typography, { name: 'feature-item-header-title' })(({ theme }) => ({
+export const FeatureItemHeaderTitle = styled(Typography, { name: 'feature-item-header-title' })(({ theme }) => ({
 	...theme.typography.HomepageHeroHeader__Copy__body,
 	color: '#000',
 	position: 'relative',
@@ -193,7 +193,7 @@ const FeatureItemHeaderTitle = styled(Typography, { name: 'feature-item-header-t
 		display: 'block'
 	}
 }));
-const FeatureItemBody = styled(Box, { name: 'feature-item-body' })(({ theme }) => ({
+export const FeatureItemBody = styled(Box, { name: 'feature-item-body' })(({ theme }) => ({
 	...theme.typography.why__section__feature__body,
 
 	width: '100%',

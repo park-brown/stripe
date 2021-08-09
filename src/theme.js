@@ -421,6 +421,13 @@ theme.typography = {
 		letterSpacing: '.2px',
 		lineHeight: '24px',
 		color: '#425466'
+	},
+	getStart__section__copy__title: {
+		fontSize: '24px',
+		fontWeight: 600,
+		letterSpacing: '.1px',
+		lineHeight: '38px',
+		color: '#0a2540'
 	}
 };
 
