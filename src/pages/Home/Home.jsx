@@ -1,5 +1,6 @@
 import React from 'react';
 import DesignedForDevlopers from '../../sections/DesignedForDevlopers/DesignedForDevlopers';
+import Footer from '../../sections/Footer/Footer';
 import GetStart from '../../sections/GetStart/GetStart';
 import GlobalScale from '../../sections/GlobalScale/GlobalScale';
 import Header from '../../sections/Header/Header';
@@ -17,6 +18,7 @@ const Home = () => {
 			<WhyStripe />
 			<GlobalScale />
 			<GetStart />
+			<Footer />
 		</React.Fragment>
 	);
 };

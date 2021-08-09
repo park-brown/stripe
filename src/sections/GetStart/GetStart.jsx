@@ -7,7 +7,7 @@ import { FeatureItem, FeatureItemBody, FeatureItemHeader, FeatureItemHeaderTitle
 import FastestImprovingPlatform from '../../SvgIcon/whySectionIcon/FastestImprovingPlatform/FastestImprovingPlatform';
 const SectionContainer = styled(Box, { name: 'get-start-section-container' })(({ theme }) => ({
 	width: '100%',
-	height: '100vh',
+
 	overflow: 'hidden',
 	position: 'relative',
 	zIndex: 0
@@ -19,7 +19,7 @@ const SectionLayOutContainer = styled(Box, { name: 'get-start-section-layout-con
 		margin: theme.spacing(0, 4),
 		position: 'relative',
 		zIndex: 2,
-		padding: '120px 0 120px 0'
+		padding: '240px 0 200px 0'
 	},
 	[theme.breakpoints.up('tablet')]: {
 		width: 'auto',

@@ -279,7 +279,7 @@ const WhyStripe = () => {
 								<FeatureItemHeaderTitle>intelligent optimizations</FeatureItemHeaderTitle>
 							</FeatureItemHeader>
 							<FeatureItemBody>
-								Our machine learning models train on
+								Our machine learning models train on{' '}
 								<Typography variant='why__section__feature__body' component='span' sx={{ color: '#635bff' }}>
 									billions
 								</Typography>{' '}
