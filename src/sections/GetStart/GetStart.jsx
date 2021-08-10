@@ -4,7 +4,8 @@ import { styled } from '@material-ui/core/styles';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { FeatureItem, FeatureItemBody, FeatureItemHeader, FeatureItemHeaderTitle } from '../WhyStripe/WhyStripe';
-import FastestImprovingPlatform from '../../SvgIcon/whySectionIcon/FastestImprovingPlatform/FastestImprovingPlatform';
+import AlwayKnowWhatYouPay from '../../SvgIcon/AnimatedIcon/AlwayKnowWhatYouPay';
+import StartIntegration from '../../SvgIcon/AnimatedIcon/StartIntegration';
 const SectionContainer = styled(Box, { name: 'get-start-section-container' })(({ theme }) => ({
 	width: '100%',
 
@@ -177,7 +178,7 @@ const GetStart = () => {
 						sx={{ padding: { mobile: '0 0 0 16px', tablet: '0 0 0 16px', laptop: 0 } }}>
 						<FeatureItemHeader>
 							<Box className='icon-container' sx={{ width: '40px', height: '40px', position: 'relative' }}>
-								<FastestImprovingPlatform />
+								<AlwayKnowWhatYouPay />
 							</Box>
 							<FeatureItemHeaderTitle>Always know what you pay</FeatureItemHeaderTitle>
 						</FeatureItemHeader>
@@ -199,7 +200,7 @@ const GetStart = () => {
 						sx={{ padding: { mobile: '0 0 0 16px', tablet: '0 0 0 16px', laptop: 0 } }}>
 						<FeatureItemHeader>
 							<Box className='icon-container' sx={{ width: '40px', height: '40px', position: 'relative' }}>
-								<FastestImprovingPlatform />
+								<StartIntegration />
 							</Box>
 							<FeatureItemHeaderTitle>Start your integration</FeatureItemHeaderTitle>
 						</FeatureItemHeader>

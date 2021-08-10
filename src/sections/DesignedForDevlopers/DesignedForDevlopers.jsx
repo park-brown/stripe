@@ -321,19 +321,19 @@ const CodeEditorLineNumbers = styled(Box, { name: 'CodeEditorLineNumbers' })(({ 
 	color: '#55718d',
 	backgroundColor: '#0c2e4e'
 }));
-const CodeEditorAsciiLoader = styled(Box, { name: 'CodeEditorAsciiLoader' })(({ theme }) => ({
-	position: 'absolute',
-	fontFamily: 'monospace',
-	fontSize: '18px',
-	top: '11px',
-	left: '48px',
-	'&::before': {
-		display: 'block',
-		content: '"⣾"',
-		fontFamily: 'monospace',
-		fontSize: '18px'
-	}
-}));
+// const CodeEditorAsciiLoader = styled(Box, { name: 'CodeEditorAsciiLoader' })(({ theme }) => ({
+// 	position: 'absolute',
+// 	fontFamily: 'monospace',
+// 	fontSize: '18px',
+// 	top: '11px',
+// 	left: '48px',
+// 	'&::before': {
+// 		display: 'block',
+// 		content: '"⣾"',
+// 		fontFamily: 'monospace',
+// 		fontSize: '18px'
+// 	}
+// }));
 const CodeEditorStatusBar = styled(Box, { name: 'CodeEditorStatusBar' })(({ theme }) => ({
 	position: 'absolute',
 	bottom: 0,
