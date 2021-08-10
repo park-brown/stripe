@@ -1,10 +1,13 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, Button } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
+import StripeLogo from '../../SvgIcon/StripeLogo/StripeLogo';
+import LocaleIcon from '../../SvgIcon/LocaleIcon/LocaleIcon';
+import LanguageIcon from '../../SvgIcon/LanguageIcon/LanguageIcon';
 
 const FooterContainer = styled(Box, { name: 'footer-container' })(({ theme }) => ({
 	width: '100%',
-	height: '100vh',
+
 	position: 'relative',
 	zIndex: 0,
 	overflow: 'hidden'
@@ -26,7 +29,7 @@ const Background = styled(Box, { name: 'background' })(({ theme }) => ({
 	overflow: 'hidden',
 	zIndex: 1
 }));
-const TopLeftRibbon = styled(Box, { name: 'top-left-ribbton-container' })(({ theme }) => ({
+const Ribbon = styled(Box, { name: 'top-left-ribbton-container' })(({ theme }) => ({
 	position: 'relative',
 	width: '100%',
 	height: '40px',
@@ -116,22 +119,176 @@ const TopRightRibbonOverlay = styled(Box, { name: 'top-right-ribbon-overlay' })(
 		width: '160px'
 	}
 }));
-
+const LayOutContainer = styled(Box, { name: 'footer-layout-container' })(({ theme }) => ({
+	[theme.breakpoints.up('mobile')]: {
+		width: 'auto',
+		height: '100%',
+		margin: theme.spacing(0, 4),
+		position: 'relative',
+		zIndex: 2
+	},
+	[theme.breakpoints.up('tablet')]: {
+		width: 'auto',
+		margin: theme.spacing(0, 4)
+	},
+	[theme.breakpoints.up('laptop')]: {
+		width: 'auto',
+		maxWidth: '1080px',
+		margin: '0 auto'
+	}
+}));
+const LayOut = styled(Box, { name: 'footer-layout' })(({ theme }) => ({
+	[theme.breakpoints.up('mobile')]: {
+		padding: 'calc(100vw * 0.1051 + 160px) 0 calc(100vw * 0.1051 + 100px) 0',
+		width: '100%',
+		display: 'grid',
+		gridTemplateColumns: 'repeat(2,1fr)',
+		gridTemplateRows: 'repeat(3,auto)',
+		gap: '20px 0',
+		gridTemplateAreas: `"header             header"
+		                   "products            developers-company"
+											 "use-case            resources"`
+	},
+	[theme.breakpoints.up('tablet')]: {
+		display: 'grid',
+		gridTemplateColumns: 'repeat(4,1fr)',
+		gridTemplateRows: 'auto',
+		gap: 0,
+		gridTemplateAreas: `"header products developers-company  use-case-resources"`
+	}
+}));
+const Header = styled(Box, { name: 'footer-header' })(({ theme }) => ({
+	gridArea: 'header',
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'flex-start',
+	gap: theme.spacing(2),
+	padding: theme.spacing(0, 4, 0, 4)
+}));
+const LocaleButton = styled(Button, { name: 'locale-button' })(({ theme }) => ({
+	[theme.breakpoints.up('mobile')]: {
+		...theme.typography.cta_button,
+		margin: theme.spacing(1, 0, 1, 0),
+		padding: theme.spacing(0),
+		color: '#0a2540',
+		backgroundColor: 'transparent',
+		whiteSpace: 'nowrap'
+	}
+}));
+// cta_button
+const ColumnTitle = styled(Typography, { name: 'footer-column-title' })(({ theme }) => ({
+	...theme.typography.cta_button,
+	color: '#0a2540',
+	textAlign: 'left',
+	display: 'block',
+	margin: theme.spacing(0, 0, 2, 0),
+	fontWeight: 600
+}));
+const ColumnContainer = styled(Box, { name: 'footer-column-container' })(({ theme, gridArea }) => ({
+	gridArea: gridArea,
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'flex-start',
+	justifyContent: 'flex-start'
+}));
+const ColumnListItem = styled(Typography, { name: 'footer-column-list-item' })(({ theme }) => ({
+	...theme.typography.cta_button,
+	color: '#0a2540',
+	textAlign: 'left',
+	display: 'block',
+	cursor: 'pointer',
+	margin: theme.spacing(1, 0, 1, 0),
+	'&:hover': {
+		opacity: 0.8
+	}
+}));
+const Product__List = [
+	'Atlas',
+	'Billing',
+	'Capital',
+	'Climate',
+	'Connect',
+	'Corporate Card',
+	'Identity',
+	'Issuing',
+	'Payments',
+	'PayOuts',
+	'Pricing',
+	'Radar',
+	'Tax',
+	'Terminal',
+	'Treasury'
+];
+const Developers__List = ['Documentation', 'API reference', 'API status'];
+const Company__List = ['About', 'Customers', 'Enterprise', 'Partners', 'Jobs', 'Blog', 'Newsroom'];
+const UseCases__List = ['SaaS', 'Platforms', 'Marketplaces', 'Ecommerce'];
+const Resources__List = [
+	'Support',
+	'Contact',
+	'Guides',
+	'Privacy & terms',
+	'Licenses',
+	'COVID-19',
+	'Sitemap',
+	'Cookie settings'
+];
 const Footer = () => {
 	return (
 		<FooterContainer component='footer'>
 			<BackgroundMask>
-				<TopLeftRibbon>
+				<Ribbon>
 					<TopleftRibbonBlue />
 					<TopLeftRibbonCyan />
 					<TopleftRibbonOverlay />
 					<TopRightRibbonCyan />
 					<TopRightRibbonBlue />
 					<TopRightRibbonOverlay />
-				</TopLeftRibbon>
+				</Ribbon>
 
 				<Background />
 			</BackgroundMask>
+			<LayOutContainer>
+				<LayOut>
+					<Header>
+						<StripeLogo />
+						<LocaleButton startIcon={<LocaleIcon />}>Singapore</LocaleButton>
+						<LocaleButton startIcon={<LanguageIcon />}>English(Unitied States)</LocaleButton>
+						<Typography variant='cta_button' sx={{ margin: 'auto 0 0 0', display: 'inline-block' }}>
+							© Stripe
+						</Typography>
+					</Header>
+					<ColumnContainer gridArea='products'>
+						<ColumnTitle>Products</ColumnTitle>
+						{Product__List.map((list) => (
+							<ColumnListItem key={list}>{list}</ColumnListItem>
+						))}
+					</ColumnContainer>
+					<ColumnContainer gridArea='developers-company'>
+						<ColumnTitle>Developers</ColumnTitle>
+						{Developers__List.map((list) => (
+							<ColumnListItem key={list}>{list}</ColumnListItem>
+						))}
+						<ColumnTitle sx={{ marginTop: '32px' }}>Company</ColumnTitle>
+						{Company__List.map((list) => (
+							<ColumnListItem key={list}>{list}</ColumnListItem>
+						))}
+					</ColumnContainer>
+					<ColumnContainer gridArea={{ mobile: 'use-case', tablet: 'use-case-resources' }}>
+						<ColumnTitle>Use cases</ColumnTitle>
+						{UseCases__List.map((list) => (
+							<ColumnListItem key={list}>{list}</ColumnListItem>
+						))}
+					</ColumnContainer>
+					<ColumnContainer
+						gridArea={{ mobile: 'resources', tablet: 'use-case-resources' }}
+						sx={{ marginTop: { mobile: 0, tablet: '198px ' } }}>
+						<ColumnTitle sx={{ marginTop: { mobile: 0, tablet: '32px' } }}>Resources</ColumnTitle>
+						{Resources__List.map((list) => (
+							<ColumnListItem key={list}>{list}</ColumnListItem>
+						))}
+					</ColumnContainer>
+				</LayOut>
+			</LayOutContainer>
 		</FooterContainer>
 	);
 };
